@@ -17,12 +17,12 @@ const iconMap: Record<string, React.FC<{ size?: number; className?: string; styl
   ),
 };
 
-const CATEGORY_COLORS = {
-  development:  { bg: 'rgba(26,111,219,0.08)',   icon: '#1A6FDB', border: 'rgba(26,111,219,0.15)' },
-  automation:   { bg: 'rgba(37,211,102,0.08)',   icon: '#25D366', border: 'rgba(37,211,102,0.15)' },
-  marketing:    { bg: 'rgba(245,158,11,0.08)',   icon: '#F59E0B', border: 'rgba(245,158,11,0.15)' },
-  design:       { bg: 'rgba(139,92,246,0.08)',   icon: '#8B5CF6', border: 'rgba(139,92,246,0.15)' },
-  consulting:   { bg: 'rgba(239,68,68,0.08)',    icon: '#EF4444', border: 'rgba(239,68,68,0.15)' },
+const CATEGORY_COLORS: Record<string, { bg: string; icon: string; border: string }> = {
+  development:  { bg: 'rgba(215,0,41,0.05)',   icon: '#d70029', border: 'rgba(215,0,41,0.1)' },
+  automation:   { bg: 'rgba(215,0,41,0.05)',   icon: '#ce0037', border: 'rgba(215,0,41,0.1)' },
+  marketing:    { bg: 'rgba(22,47,98,0.05)',   icon: '#162f62', border: 'rgba(22,47,98,0.1)' },
+  design:       { bg: 'rgba(145,0,148,0.05)',  icon: '#910094', border: 'rgba(145,0,148,0.1)' },
+  consulting:   { bg: 'rgba(215,0,41,0.05)',   icon: '#d70029', border: 'rgba(215,0,41,0.1)' },
 };
 
 export const ServicesSection: React.FC = () => {
@@ -32,79 +32,86 @@ export const ServicesSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="services"
-      className="section-padding bg-gradient-section"
+      className="section-padding bg-light-section border-b border-ieyal-border"
       aria-labelledby="services-heading"
     >
       <div className="container-xl">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-          <SectionHeader
-            eyebrow="What We Do"
-            title="Services Designed to "
-            titleHighlight="Drive Growth"
-            subtitle="From custom software to intelligent automation, every service we offer is built around a single goal — measurable business impact."
-            id="services-heading"
-          />
+        {/* Header with View All Link */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-14 md:mb-20">
+          <div className="flex-1">
+            <SectionHeader
+              eyebrow="What We Do"
+              title="Services Designed to Drive Growth"
+              titleHighlight="Drive Growth"
+              subtitle="From custom software to intelligent automation, every service we offer is built around a single goal — measurable business impact."
+              id="services-heading"
+            />
+          </div>
           <Link
             to="/services"
-            className="flex items-center gap-2 text-sm font-semibold text-ieyal-secondary hover:text-ieyal-primary transition-colors whitespace-nowrap self-end lg:self-auto"
+            className="btn btn-outline btn-md self-start md:self-end whitespace-nowrap"
             aria-label="View all services"
           >
-            View All Services <ArrowRight size={16} aria-hidden="true" />
+            View All Services <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {SERVICES.slice(0, 12).map((service, i) => {
             const Icon   = iconMap[service.icon] as React.FC<{ size?: number; className?: string; style?: React.CSSProperties }>;
             const colors = CATEGORY_COLORS[service.category];
 
             return (
-              <Link
+              <div
                 key={service.id}
-                to={`/services/${service.slug}`}
-                className={`card-base group p-6 flex flex-col gap-4 transition-all duration-700 focus-visible:outline-2 focus-visible:outline-ieyal-secondary ${
+                className={`card-elevated group p-6 md:p-7 flex flex-col h-full transition-all duration-500 relative ${
                   inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${i * 50}ms` }}
-                aria-label={`${service.title} service — ${service.shortDesc}`}
               >
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="absolute inset-0 z-20 rounded-xl focus-visible:outline-2 focus-visible:outline-ieyal-primary"
+                  aria-label={`${service.title} service — ${service.shortDesc}`}
+                />
                 {/* Icon */}
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: colors.bg, border: `1px solid ${colors.border}` }}
+                  className="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 mb-5"
+                  style={{ background: colors.bg, border: `1.5px solid ${colors.border}` }}
                 >
-                  {Icon && <Icon size={22} style={{ color: colors.icon }} aria-hidden="true" />}
+                  {Icon && <Icon size={24} style={{ color: colors.icon }} aria-hidden="true" />}
                 </div>
 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-base font-semibold text-neutral-800 group-hover:text-ieyal-primary transition-colors mb-2 leading-snug">
+                <div className="flex-grow flex flex-col">
+                  <h3 className="text-lg font-bold text-ieyal-darker mb-3 leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed">
+                  <p className="text-sm text-neutral-600 leading-relaxed mb-6">
                     {service.shortDesc}
                   </p>
+                  
+                  {/* Arrow */}
+                  <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-primary-500 transition-all duration-200 translate-x-0 group-hover:translate-x-1">
+                    Learn More <ArrowRight size={14} aria-hidden="true" />
+                  </div>
                 </div>
-
-                {/* Arrow */}
-                <div className="flex items-center gap-1 text-xs font-semibold text-ieyal-secondary opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-x-1 group-hover:translate-x-0">
-                  Learn More <ArrowRight size={12} aria-hidden="true" />
-                </div>
-              </Link>
+              </div>
             );
           })}
         </div>
 
-        {/* See All */}
+        {/* See All Button */}
         {SERVICES.length > 12 && (
-          <div className="mt-10 text-center">
+          <div className="mt-14 md:mt-20 text-center">
             <Link
               to="/services"
-              className="btn btn-outline btn-md"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-soft-md transition-all duration-300"
               aria-label="View all IEYAL services"
             >
               View All {SERVICES.length} Services
-              <ArrowRight size={16} aria-hidden="true" />
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
         )}

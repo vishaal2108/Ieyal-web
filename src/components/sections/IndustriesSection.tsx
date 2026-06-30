@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, UtensilsCrossed, Heart, GraduationCap, ShoppingBag, Home, Factory, Truck, Landmark, Rocket, Briefcase, Plane, Car, HardHat, Building } from 'lucide-react';
+import { Building2, UtensilsCrossed, Heart, GraduationCap, ShoppingBag, Home, Factory, Truck, Landmark, Rocket, Briefcase, Plane, Car, HardHat, Building, ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { useInView } from '@/hooks/useInView';
 import { INDUSTRIES } from '@/data/industries';
@@ -31,32 +31,44 @@ export const IndustriesSection: React.FC = () => {
           id="industries-heading"
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 md:gap-6 items-stretch">
           {INDUSTRIES.map((industry, i) => {
             const Icon = iconMap[industry.icon];
             return (
-              <Link
+              <div
                 key={industry.id}
-                to={`/industries/${industry.slug}`}
-                className={`card-base group p-5 flex flex-col items-center text-center gap-3 transition-all duration-700 focus-visible:outline-2 focus-visible:outline-ieyal-secondary ${
+                className={`card-base group p-6 h-full flex flex-col items-start text-left gap-4 transition-all duration-500 relative ${
                   inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${i * 40}ms` }}
-                aria-label={`${industry.name} — ${industry.shortDesc}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                <Link
+                  to={`/industries/${industry.slug}`}
+                  className="absolute inset-0 z-20 rounded-xl focus-visible:outline-2 focus-visible:outline-ieyal-primary"
+                  aria-label={`${industry.name} — ${industry.shortDesc}`}
+                />
+                <div className="w-14 h-14 rounded-xl bg-primary-50 flex items-center justify-center group-hover:bg-primary-500 transition-colors duration-300">
                   {Icon && (
                     <Icon
-                      size={22}
-                      className="text-ieyal-secondary group-hover:scale-110 transition-transform duration-200"
+                      size={24}
+                      className="text-ieyal-secondary group-hover:text-white transition-colors duration-300"
                       aria-hidden="true"
                     />
                   )}
                 </div>
-                <p className="text-sm font-semibold text-neutral-700 group-hover:text-ieyal-primary transition-colors leading-snug">
-                  {industry.name}
-                </p>
-              </Link>
+                <div className="flex-grow flex flex-col">
+                  <h3 className="text-lg font-bold text-ieyal-darker group-hover:text-ieyal-primary transition-colors leading-snug">
+                    {industry.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-600 leading-relaxed mb-6">
+                    {industry.shortDesc}
+                  </p>
+                  
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary-500 transition-transform group-hover:translate-x-1">
+                    Learn more <ArrowRight size={14} aria-hidden="true" />
+                  </span>
+                </div>
+              </div>
             );
           })}
         </div>

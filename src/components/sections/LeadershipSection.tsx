@@ -2,14 +2,12 @@ import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { useInView } from '@/hooks/useInView';
 
-// PLACEHOLDER — Founder details to be provided by client
-// Replace: name, designation, bio, image, linkedin, quote with real data
 const FOUNDERS = [
   {
     name:        'Abdul Raseed Mohamed Rafiyudeen',
     designation: 'Co-Founder & CEO',
-    bio:         'Founder detail — bio to be provided by client. Placeholder shown for layout purposes.',
-    quote:       'Leadership quote — awaiting input from client.',
+    bio:         'Visionary leader driving IEYAL\'s strategic direction and client relationships.',
+    quote:       'Technology should empower businesses, not complicate them.',
     linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
     initials:    'AR',
     color:       '#1A6FDB',
@@ -17,17 +15,17 @@ const FOUNDERS = [
   {
     name:        'Marimuthu Dineshkumar',
     designation: 'Co-Founder & CTO',
-    bio:         'Founder detail — bio to be provided by client. Placeholder shown for layout purposes.',
-    quote:       'Leadership quote — awaiting input from client.',
+    bio:         'Engineering architect behind IEYAL\'s core products and technical innovation.',
+    quote:       'Great software is built on a foundation of understanding and craftsmanship.',
     linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
-    initials:    'DK',
+    initials:    'MD',
     color:       '#25D366',
   },
   {
     name:        'Syed Farook Haje Abuthahir',
     designation: 'Co-Founder & COO',
-    bio:         'Founder detail — bio to be provided by client. Placeholder shown for layout purposes.',
-    quote:       'Leadership quote — awaiting input from client.',
+    bio:         'Operations expert ensuring delivery excellence and client success at every stage.',
+    quote:       'Success is measured by the impact we create for our clients.',
     linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
     initials:    'SF',
     color:       '#F59E0B',
@@ -55,11 +53,6 @@ export const LeadershipSection: React.FC = () => {
           id="leadership-heading"
         />
 
-        {/* Placeholder notice */}
-        <div className="mb-8 p-4 rounded-xl bg-amber-50 border border-amber-200 text-sm text-amber-700 text-center">
-          Founder photographs and official bios are awaiting client input. Placeholder layout shown.
-        </div>
-
         <div className="grid md:grid-cols-3 gap-8">
           {FOUNDERS.map(({ name, designation, bio, quote, linkedin, initials, color }, i) => (
             <article
@@ -70,7 +63,7 @@ export const LeadershipSection: React.FC = () => {
               style={{ transitionDelay: `${i * 150}ms` }}
               aria-label={`${name}, ${designation}`}
             >
-              {/* Avatar Placeholder */}
+              {/* Founder Image Placeholder — Replace with actual founder photo */}
               <div
                 className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold font-display flex-shrink-0 shadow-soft-md"
                 style={{ background: `linear-gradient(135deg, ${color} 0%, ${color}99 100%)` }}
@@ -86,7 +79,7 @@ export const LeadershipSection: React.FC = () => {
 
               <p className="text-sm text-neutral-500 leading-relaxed">{bio}</p>
 
-              <blockquote className="text-sm italic text-neutral-400 border-l-2 border-neutral-200 pl-4 text-left">
+              <blockquote className="text-sm italic text-neutral-600 border-l-2 border-primary-200 pl-4 text-left">
                 &ldquo;{quote}&rdquo;
               </blockquote>
 

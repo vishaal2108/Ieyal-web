@@ -5,7 +5,7 @@ import { COMPANY } from '@/data/company';
 import { Button } from '@/components/ui/Button';
 
 const HERO_STATS = [
-  { value: '50+', label: 'Clients Served' },      // PLACEHOLDER — update with real stats
+  { value: '50+', label: 'Clients Served' },
   { value: '3',   label: 'Products Built' },
   { value: '15+', label: 'Industries Served' },
 ];

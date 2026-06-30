@@ -7,7 +7,7 @@ export const StructuredData: React.FC = () => {
     "@type": "Organization",
     "name": COMPANY.name,
     "url": COMPANY.meta.siteUrl,
-    "logo": `${COMPANY.meta.siteUrl}/assets/logo.png`,
+    "logo": `${COMPANY.meta.siteUrl}/logo.svg`,
     "description": COMPANY.description,
     "address": {
       "@type": "PostalAddress",

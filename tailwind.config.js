@@ -5,27 +5,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // IEYAL Brand Colors — Deep Navy + Electric Blue + Gold system
+        // IEYAL Brand Colors — Light theme inspired
         ieyal: {
-          primary:   '#0F2B5B', // Deep Navy
-          secondary: '#1A6FDB', // Electric Blue
-          accent:    '#F59E0B', // Amber Gold
-          dark:      '#060E1F', // Near Black
-          darker:    '#030914', // Deepest Dark
+          primary:   '#d70029', // Brand Red
+          secondary: '#162f62', // Navy Blue
+          accent:    '#ce0037', // Button Red
+          dark:      '#212529', // Charcoal Black
+          darker:    '#162f62', // Navy Blue (Footer/Heading)
+          light:     '#f4f6fc', // Light BG
+          border:    '#E5E7EB', // Border Gray
         },
         // Design Token Aliases
         primary: {
-          50:  '#EEF4FF',
-          100: '#D9E8FF',
-          200: '#B3D1FF',
-          300: '#7DB3FF',
-          400: '#4090FF',
-          500: '#1A6FDB', // brand secondary / interactive
-          600: '#1359B5',
-          700: '#0F4490',
-          800: '#0F2B5B', // brand primary / dark headers
-          900: '#091B3F',
-          950: '#060E1F',
+          50:  '#FDF2F8',
+          100: '#FCDAE8',
+          200: '#FAB5D0',
+          300: '#F591B8',
+          400: '#EE6CA4',
+          500: '#E6017F', // brand primary
+          600: '#D60070',
+          700: '#C6005F',
+          800: '#A00050',
+          900: '#7A003D',
+          950: '#5A002A',
         },
         accent: {
           50:  '#FFFBEB',
@@ -64,8 +66,8 @@ export default {
         info:    '#3B82F6',
       },
       fontFamily: {
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        sans:    ['Poppins', 'system-ui', 'sans-serif'],
+        display: ['Poppins', 'system-ui', 'sans-serif'],
         mono:    ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       fontSize: {
@@ -87,27 +89,29 @@ export default {
         '5xl': '2.5rem',
       },
       boxShadow: {
-        'soft-xs': '0 1px 3px 0 rgba(15, 43, 91, 0.06)',
-        'soft-sm': '0 2px 8px 0 rgba(15, 43, 91, 0.08)',
-        'soft':    '0 4px 16px 0 rgba(15, 43, 91, 0.10)',
-        'soft-md': '0 8px 24px 0 rgba(15, 43, 91, 0.12)',
-        'soft-lg': '0 16px 40px 0 rgba(15, 43, 91, 0.14)',
-        'soft-xl': '0 24px 64px 0 rgba(15, 43, 91, 0.16)',
-        'glow-blue': '0 0 40px 0 rgba(26, 111, 219, 0.25)',
-        'glow-gold': '0 0 40px 0 rgba(245, 158, 11, 0.20)',
-        'card':    '0 2px 8px 0 rgba(15,43,91,0.08), 0 8px 32px 0 rgba(15,43,91,0.06)',
-        'card-hover': '0 8px 24px 0 rgba(15,43,91,0.14), 0 24px 64px 0 rgba(15,43,91,0.10)',
-        'glass':   '0 8px 32px 0 rgba(15, 43, 91, 0.12)',
-        'navbar':  '0 2px 24px 0 rgba(15, 43, 91, 0.08)',
+        'soft-xs': '0 1px 3px 0 rgba(31, 41, 55, 0.06)',
+        'soft-sm': '0 2px 8px 0 rgba(31, 41, 55, 0.08)',
+        'soft':    '0 4px 12px 0 rgba(0, 0, 0, 0.08)',
+        'soft-md': '0 8px 16px 0 rgba(0, 0, 0, 0.12)',
+        'soft-lg': '0 12px 24px 0 rgba(0, 0, 0, 0.15)',
+        'soft-xl': '0 20px 40px 0 rgba(0, 0, 0, 0.18)',
+        'card':    '0 4px 6px 0 rgba(0, 0, 0, 0.10)',
+        'card-hover': '0 8px 16px 0 rgba(0, 0, 0, 0.12)',
+        'glass':   '0 8px 32px 0 rgba(0, 0, 0, 0.10)',
+        'navbar':  '0 2px 8px 0 rgba(0, 0, 0, 0.08)',
+      },
+      spacing: {
+        'section-y': '100px',
+        'section-x': '40px',
       },
       backgroundImage: {
-        'hero-gradient':    'linear-gradient(135deg, #060E1F 0%, #0F2B5B 50%, #0D1F47 100%)',
-        'hero-radial':      'radial-gradient(ellipse at 70% 50%, rgba(26,111,219,0.18) 0%, transparent 70%)',
-        'section-gradient': 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)',
-        'card-gradient':    'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
-        'primary-gradient': 'linear-gradient(135deg, #0F2B5B 0%, #1A6FDB 100%)',
-        'accent-gradient':  'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
-        'glass-gradient':   'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)',
+        'hero-gradient':    'linear-gradient(135deg, #162f62 0%, #1a3a78 100%)',
+        'hero-radial':      'radial-gradient(ellipse at 70% 50%, rgba(215,0,41,0.08) 0%, transparent 70%)',
+        'section-gradient': 'linear-gradient(180deg, #f4f6fc 0%, #ffffff 100%)',
+        'card-gradient':    'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 100%)',
+        'primary-gradient': 'linear-gradient(to right, #de001d, #910094)',
+        'accent-gradient':  'linear-gradient(to right, #de001d, #ce0037)',
+        'glass-gradient':   'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
         'grid-pattern':     'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%231A6FDB\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
       },
       animation: {
@@ -194,6 +198,46 @@ export default {
       },
       screens: {
         'xs': '475px',
+      },
+      /* Professional Utility Classes */
+      content: {
+        'empty': '""',
+      },
+      cursor: {
+        'grab': 'grab',
+        'grabbing': 'grabbing',
+      },
+      dropShadow: {
+        'soft': '0 4px 12px rgba(15, 43, 91, 0.08)',
+        'soft-md': '0 8px 20px rgba(15, 43, 91, 0.10)',
+        'soft-lg': '0 12px 32px rgba(15, 43, 91, 0.12)',
+      },
+      /* Text and Typography Utilities */
+      textDecoration: {
+        'none': 'none',
+        'underline': 'underline',
+      },
+      /* Border and Divider Utilities */
+      borderOpacity: {
+        '5': '0.05',
+        '10': '0.10',
+      },
+      /* Transform and Animation Utilities */
+      skew: {
+        '-2': '-2deg',
+        '-1': '-1deg',
+        '1': '1deg',
+        '2': '2deg',
+      },
+      /* Filters */
+      filter: {
+        'none': 'none',
+        'grayscale': 'grayscale(100%)',
+        'sepia': 'sepia(100%)',
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(10px)',
       },
     },
   },

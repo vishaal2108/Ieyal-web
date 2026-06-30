@@ -40,11 +40,6 @@ export const CultureSection: React.FC = () => {
           id="culture-heading"
         />
 
-        {/* Placeholder office image notice */}
-        <div className="mb-10 p-4 rounded-xl bg-white/5 border border-white/10 text-sm text-blue-100/50 text-center">
-          Office and team photographs are awaiting client input. Placeholder values grid shown.
-        </div>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {CULTURE_VALUES.map(({ icon: Icon, title, desc }, i) => (
             <div

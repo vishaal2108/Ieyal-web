@@ -83,16 +83,11 @@ export const Navbar: React.FC = () => {
               aria-label="IEYAL Solutions – Home"
             >
               {/* SVG Logo Placeholder — replace src with official logo */}
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: 'linear-gradient(135deg, #0F2B5B 0%, #1A6FDB 100%)' }}
-                aria-hidden="true"
-              >
-                IE
-              </div>
-              <span className="font-display font-bold text-ieyal-primary text-lg leading-tight hidden xs:block">
-                IEYAL <span className="text-ieyal-secondary font-semibold">Solutions</span>
-              </span>
+              <img
+                src="/logo.svg"
+                alt="IEYAL Solutions"
+                className="h-10 sm:h-11 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop Nav */}
