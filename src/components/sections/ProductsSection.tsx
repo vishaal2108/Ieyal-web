@@ -43,44 +43,57 @@ export const ProductsSection: React.FC = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="bg-white rounded-[2.5rem] border border-slate-200/80 shadow-md hover:shadow-xl relative flex h-full flex-col overflow-hidden transition-all duration-300"
+              className="bg-white rounded-[2.5rem] border-2 border-slate-200/80 shadow-[0_10px_30px_rgb(0,0,0,0.06)] hover:-translate-y-3 hover:scale-[1.015] hover:border-[#FF001E] hover:shadow-[0_25px_50px_-12px_rgba(255,0,30,0.18)] relative flex h-full flex-col overflow-hidden transition-all duration-500 ease-out group cursor-default"
               aria-label={`${product.name} - ${product.tagline}`}
             >
               {/* Card Header (Centered) */}
               <div
-                className="px-6 sm:px-8 pt-10 pb-8 flex flex-col items-center text-center border-b border-slate-100"
+                className="px-6 sm:px-8 pt-10 pb-6 flex flex-col items-center text-center border-b border-slate-100"
                 style={{
                   background: `linear-gradient(180deg, ${product.color}10 0%, #FFFFFF 100%)`,
                 }}
               >
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 shadow-sm transition-transform hover:scale-105"
-                  style={{ backgroundColor: product.color }}
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                  style={{ backgroundColor: product.color, marginBottom: '10px' }}
                 >
                   {productIcons[product.id]}
                 </div>
 
-                <h3 className="font-display font-black text-2xl md:text-3xl text-slate-900 mb-1.5 leading-tight">
+                <h3
+                  style={{ marginBottom: '10px' }}
+                  className="font-display font-black text-2xl md:text-3xl text-slate-900 leading-tight"
+                >
                   {product.name}
                 </h3>
-                <p className="text-xs sm:text-sm font-bold mb-3 uppercase tracking-wider text-[#E600E6]">
+                <p
+                  style={{ marginBottom: '10px' }}
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E600E6]"
+                >
                   {product.tagline}
                 </p>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-sm mx-auto">
+                <p
+                  style={{ paddingLeft: '10px', paddingRight: '10px', marginBottom: '10px' }}
+                  className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-sm mx-auto px-[10px]"
+                >
                   {product.description}
                 </p>
               </div>
 
-              {/* Clean Minimalist Typography Features (No Emojis or Dots) */}
+              {/* Clean Minimalist Typography Features (No Emojis or Dots, Left Aligned One by One) */}
               <div className="px-6 sm:px-8 py-8 flex-grow flex flex-col justify-center bg-slate-50/50">
-                <p className="text-center text-xs font-bold uppercase tracking-widest text-[#FF001E] mb-4">
+                <p
+                  style={{ fontWeight: 800, marginBottom: '10px' }}
+                  className="text-center text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#FF001E]"
+                >
                   Key Capabilities
                 </p>
-                <ul className="divide-y divide-slate-200/60 max-w-xs mx-auto w-full p-0" role="list">
+                <ul className="flex flex-col max-w-xs sm:max-w-sm mx-auto w-full p-0 list-none" role="list">
                   {product.features.slice(0, 4).map((feature, idx) => (
                     <li
                       key={`${feature.title}-${idx}`}
-                      className="py-3 text-center text-sm sm:text-base font-semibold text-slate-700 m-0 first:pt-0 last:pb-0 transition-colors hover:text-[#FF001E]"
+                      style={{ marginBottom: '10px', paddingLeft: '10px', paddingRight: '10px', textAlign: 'center' }}
+                      className="py-1 text-center text-sm sm:text-base font-semibold text-slate-800 m-0 transition-colors group-hover:text-[#FF001E] block w-full"
                     >
                       {feature.title}
                     </li>
@@ -88,11 +101,12 @@ export const ProductsSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Card Footer with Standalone Pill Button (Not w-full) */}
-              <div className="px-6 sm:px-8 pb-9 pt-7 flex flex-col items-center justify-center gap-3.5 mt-auto border-t border-slate-100 bg-white">
+              {/* Card Footer with Standalone Pill Button */}
+              <div className="px-6 sm:px-8 pb-9 pt-7 flex flex-col items-center justify-center mt-auto border-t border-slate-100 bg-white">
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  style={{ marginBottom: '10px' }}
                   className="inline-flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-sm sm:text-base shadow-md shadow-red-500/20 hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
                 >
                   {product.cta.primary}
@@ -101,6 +115,7 @@ export const ProductsSection: React.FC = () => {
                   href={product.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ marginBottom: '10px' }}
                   className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-bold text-slate-500 hover:text-[#FF001E] transition-colors py-1"
                   aria-label={`Visit ${product.name} website`}
                 >

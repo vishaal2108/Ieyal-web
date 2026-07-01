@@ -115,14 +115,15 @@ export const Navbar: React.FC = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="w-full max-w-7xl mx-auto pointer-events-auto bg-white/70 backdrop-blur-xl border border-white/80 rounded-full shadow-[0_8px_32px_0_rgba(31,38,135,0.12)] hover:shadow-[0_8px_36px_0_rgba(31,38,135,0.16)] transition-all duration-300 px-4 sm:px-6 lg:px-8 py-1.5 overflow-visible">
+        <div className="w-full max-w-7xl mx-auto pointer-events-auto bg-white/85 backdrop-blur-2xl border-2 border-slate-200/90 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-slate-900/5 hover:border-slate-300 hover:shadow-[0_8px_36px_rgb(0,0,0,0.12)] transition-all duration-300 px-6 sm:px-8 md:px-10 lg:px-12 py-2 overflow-visible">
           <div className="flex items-center justify-between h-14 sm:h-16 gap-3 lg:gap-4 xl:gap-6 w-full">
 
             {/* Logo */}
             <Link
               to="/"
               onClick={closeAll}
-              className="flex items-center gap-3 flex-shrink-0 focus-visible:outline-none py-1 group cursor-pointer"
+              style={{ marginLeft: '10px' }}
+              className="flex items-center gap-3 flex-shrink-0 focus-visible:outline-none py-1 group cursor-pointer ml-[10px]"
               aria-label="IEYAL Solutions – Home"
             >
               <img
@@ -280,7 +281,8 @@ export const Navbar: React.FC = () => {
               <Link
                 to="/contact"
                 onClick={closeAll}
-                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 text-xs xl:text-sm font-bold text-white bg-transparent border-2 border-[#FF001E] text-[#FF001E] hover:bg-[#FF001E] hover:text-white transition-all !px-[14px] xl:!px-[16px] !py-[9px] xl:!py-[10px] !rounded-full shadow-sm whitespace-nowrap !h-[40px] xl:!h-[42px] cursor-pointer flex-shrink-0"
+                style={{ marginRight: '10px' }}
+                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 text-xs xl:text-sm font-bold text-white bg-transparent border-2 border-[#FF001E] text-[#FF001E] hover:bg-[#FF001E] hover:text-white transition-all !px-[14px] xl:!px-[16px] !py-[9px] xl:!py-[10px] !rounded-full shadow-sm whitespace-nowrap !h-[40px] xl:!h-[42px] cursor-pointer flex-shrink-0 mr-[10px]"
               >
                 Get a Free Demo
               </Link>
@@ -288,7 +290,8 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Hamburger */}
             <button
-              className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-slate-100 transition-colors"
+              className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-slate-100 transition-colors mr-[10px]"
+              style={{ marginRight: '10px' }}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}

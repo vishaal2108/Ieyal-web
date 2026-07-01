@@ -45,11 +45,15 @@ const ALL_ITEMS = [...CUSTOMERS, ...CUSTOMERS];
 
 const LogoCard: React.FC<{ name: string; src: string }> = ({ name, src }) => (
   <div
-    style={{ marginTop: '8px', marginRight: '2.5px', marginBottom: '0', marginLeft: '2.5px' }}
-    className="flex-shrink-0 flex items-center justify-center w-60 h-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:scale-105 hover:border-[#FF001E] hover:shadow-md transition-all duration-300 cursor-default mt-2"
+    style={{ margin: '0 28px' }}
+    className="flex-shrink-0 flex items-center justify-center h-16 sm:h-20 px-3 transition-all duration-300 hover:scale-110 cursor-default"
     title={`${name}`}
   >
-    <img src={src} alt={`${name} logo`} className="max-h-16 max-w-full object-contain block border-none outline-none shadow-none" />
+    <img
+      src={src}
+      alt={`${name} logo`}
+      className="max-h-9 sm:max-h-11 md:max-h-12 w-auto object-contain block filter grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
   </div>
 );
 
@@ -59,32 +63,32 @@ export const MarqueeSection: React.FC = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      style={{ marginTop: '40px', marginBottom: '60px' }}
-      className="py-24 bg-slate-50 w-full mt-10 mb-12 border-none shadow-none"
+      style={{ marginTop: '30px', marginBottom: '50px' }}
+      className="py-14 md:py-16 bg-slate-50 border-y border-slate-200/80 w-full overflow-hidden"
       aria-labelledby="trusted-heading"
     >
-      <div style={{ marginTop: '20px' }} className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 w-full flex flex-col items-center justify-center mt-6">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 w-full flex flex-col items-center justify-center">
         <div
           className={`w-full flex flex-col items-center justify-center text-center font-sans transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
           <h2
             id="trusted-heading"
-            style={{ fontSize: 'clamp(2rem, 4.1vw, 3.375rem)' }}
-            className="w-full text-center font-extrabold tracking-tight text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
+            className="w-full text-center font-extrabold tracking-tight text-slate-900 mb-2"
           >
             Trusted by Growing Brands Across India
           </h2>
         </div>
       </div>
 
-      {/* Marquee Strip */}
+      {/* Top Line Marquee Strip */}
       <div
-        style={{ marginTop: '10px' }}
-        className="marquee-wrapper mt-2 overflow-hidden w-full"
+        style={{ marginTop: '20px', marginBottom: '20px' }}
+        className="marquee-wrapper my-6 overflow-hidden w-full py-4"
         role="region"
         aria-label="Clients logo strip — client names scroll automatically"
       >
-        <div className="marquee-track" aria-hidden="true">
+        <div className="marquee-track flex items-center" aria-hidden="true">
           {ALL_ITEMS.map((item, i) => (
             <LogoCard key={`${item.name}-${i}`} name={item.name} src={item.src} />
           ))}
@@ -92,7 +96,7 @@ export const MarqueeSection: React.FC = () => {
       </div>
 
       {/* Content & CTA Button after image strip like uengage.io */}
-      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 w-full flex flex-col items-center justify-center text-center font-sans">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 w-full flex flex-col items-center justify-center text-center font-sans">
         <p className="w-full text-center text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal px-4 mb-8">
           We are proud to partner with ambitious businesses and industry leaders who rely on IEYAL Solutions for their digital transformation.
         </p>
