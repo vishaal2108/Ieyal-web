@@ -1,6 +1,9 @@
 import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { useInView } from '@/hooks/useInView';
+import rafiyudeenImg from '@/assets/founders/mohamed-rafiyudeen.jpeg';
+import dineshkumarImg from '@/assets/founders/dinesh-kumar.jpeg';
+import hajeabuthahirImg from '@/assets/founders/haje-abudhahir.jpeg';
 
 const FOUNDERS = [
   {
@@ -8,27 +11,30 @@ const FOUNDERS = [
     designation: 'Co-Founder & CEO',
     bio:         'Visionary leader driving IEYAL\'s strategic direction and client relationships.',
     quote:       'Technology should empower businesses, not complicate them.',
-    linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
+    linkedin:    'https://www.linkedin.com/in/amrafiyudeen/',
     initials:    'AR',
     color:       '#1A6FDB',
+    image:       rafiyudeenImg,
   },
   {
     name:        'Marimuthu Dineshkumar',
     designation: 'Co-Founder & CTO',
     bio:         'Engineering architect behind IEYAL\'s core products and technical innovation.',
     quote:       'Great software is built on a foundation of understanding and craftsmanship.',
-    linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
+    linkedin:    'https://www.linkedin.com/in/dinesh-kumar-4a5562133/',
     initials:    'MD',
     color:       '#25D366',
+    image:       dineshkumarImg,
   },
   {
     name:        'Syed Farook Haje Abuthahir',
     designation: 'Co-Founder & COO',
     bio:         'Operations expert ensuring delivery excellence and client success at every stage.',
     quote:       'Success is measured by the impact we create for our clients.',
-    linkedin:    'https://www.linkedin.com/company/ieyalsolutions/',
+    linkedin:    'https://www.linkedin.com/in/hajeabudhahir-syed/',
     initials:    'SF',
     color:       '#F59E0B',
+    image:       hajeabuthahirImg,
   },
 ];
 
@@ -55,7 +61,7 @@ export const LeadershipSection: React.FC = () => {
         />
 
         <div className="grid md:grid-cols-3 gap-8 font-sans">
-          {FOUNDERS.map(({ name, designation, bio, quote, linkedin, initials, color }, i) => (
+          {FOUNDERS.map(({ name, designation, bio, quote, linkedin, image }, i) => (
             <article
               key={name}
               className={`bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#FF001E] flex flex-col items-center text-center gap-5 transition-all duration-500 ${
@@ -64,13 +70,13 @@ export const LeadershipSection: React.FC = () => {
               style={{ transitionDelay: `${i * 150}ms` }}
               aria-label={`${name}, ${designation}`}
             >
-              {/* Founder Image Placeholder — Replace with actual founder photo */}
-              <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0 shadow-md"
-                style={{ background: `linear-gradient(135deg, ${color} 0%, ${color}99 100%)` }}
-                aria-label={`Photo placeholder for ${name}`}
-              >
-                {initials}
+              {/* Founder Image */}
+              <div className="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-[#FF001E] via-[#E600E6] to-slate-200 shadow-md flex-shrink-0 group hover:scale-105 transition-transform duration-300">
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-full h-full rounded-full object-cover bg-white"
+                />
               </div>
 
               <div>

@@ -16,46 +16,46 @@ const TABS: { key: Tab; label: string; icon: React.ReactNode }[] = [
 
 const CONTENT: Record<Tab, React.ReactNode> = {
   story: (
-    <div className="space-y-5 font-sans">
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+    <div className="space-y-4 font-sans pt-1">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
           IEYAL Solutions was founded in 2023 by a group of engineers and entrepreneurs who kept seeing the same problem: small and mid-sized businesses in India were being left behind in the digital revolution. Enterprise tools were too expensive. Generic software did not fit their workflows. And most technology vendors were not invested in their outcomes.
         </p>
       </div>
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          We built IEYAL to change that. Starting from Thiruvarur, Tamil Nadu, we set out to create practical, affordable, and genuinely effective technology — software that business owners can understand, teams can actually use, and that delivers a return people can measure.
+          We built IEYAL to change that. Starting from Thiruvarur, Tamil Nadu, we set out to create practical, affordable, and genuinely effective technology software that business owners can understand, teams can actually use, and that delivers a return people can measure.
         </p>
       </div>
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          Today, we build custom software, automate business operations, and develop our own SaaS products — OwnChat, OwnTasks, and OwnCart — all built from conversations with real business owners about real problems.
+          Today, we build custom software, automate business operations, and develop our own SaaS products OwnChat, OwnTasks, and OwnCart all built from conversations with real business owners about real problems.
         </p>
       </div>
     </div>
   ),
   mission: (
-    <div className="space-y-5 font-sans">
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+    <div className="space-y-4 font-sans pt-1">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          Our mission is to make enterprise-quality technology accessible to every business — not just the ones with large IT budgets. We build solutions that are affordable without being basic, powerful without being complicated, and tailored without being expensive to maintain.
+          Our mission is to make enterprise-quality technology accessible to every business not just the ones with large IT budgets. We build solutions that are affordable without being basic, powerful without being complicated, and tailored without being expensive to maintain.
         </p>
       </div>
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          We measure our success by the growth our clients achieve — leads converted, hours saved, processes automated, and teams empowered. Every project we take on is a commitment to delivering something that genuinely moves the needle.
+          We measure our success by the growth our clients achieve from leads converted and hours saved to processes automated and teams empowered. Every project we take on is a commitment to delivering something that genuinely moves the needle.
         </p>
       </div>
     </div>
   ),
   vision: (
-    <div className="space-y-5 font-sans">
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+    <div className="space-y-4 font-sans pt-1">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-          We see a future where every business in India — regardless of size or sector — has access to the same quality of technology that powers the country's largest companies.
+          We see a future where every business in India regardless of size or sector has access to the same quality of technology that powers the country's largest companies.
         </p>
       </div>
-      <div className="p-6 md:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm transition-all duration-300">
+      <div className="py-1">
         <p className="text-slate-700 leading-relaxed text-base md:text-lg">
           Our vision is to become the technology backbone for India's growing businesses, delivering products and services that scale with ambition and adapt with change. We are building for the next decade, with a focus on AI-powered automation, deep industry expertise, and a client-first culture that never compromises on outcomes.
         </p>
@@ -63,14 +63,14 @@ const CONTENT: Record<Tab, React.ReactNode> = {
     </div>
   ),
   values: (
-    <div className="grid sm:grid-cols-2 gap-4 font-sans">
+    <div className="grid sm:grid-cols-2 gap-6 font-sans pt-1">
       {[
         { icon: <Users size={20} />,   label: 'Client First',    desc: 'Every decision starts with what is right for our client, not what is convenient for us.' },
-        { icon: <Shield size={20} />,  label: 'Accountability',  desc: 'We deliver what we commit to. If something is not working, we fix it — no excuses.' },
+        { icon: <Shield size={20} />,  label: 'Accountability',  desc: 'We deliver what we commit to. If something is not working, we fix it without excuses.' },
         { icon: <Zap size={20} />,     label: 'Practical Speed', desc: 'We move fast without cutting corners. Good solutions delivered on time.' },
         { icon: <Heart size={20} />,   label: 'Genuine Care',    desc: 'We invest in the success of every client as if it were our own business.' },
       ].map(({ icon, label, desc }) => (
-        <div key={label} className="flex gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm hover:border-[#FF001E] hover:shadow-md transition-all duration-300">
+        <div key={label} className="flex gap-4 py-2 transition-all duration-300">
           <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center flex-shrink-0 text-[#FF001E]">
             {icon}
           </div>
@@ -93,7 +93,7 @@ export const AboutSection: React.FC = () => {
       ref={ref as React.RefObject<HTMLElement>}
       id="about"
       style={{ marginBottom: '60px' }}
-      className="py-24 bg-white border-none shadow-none w-full"
+      className="py-24 bg-white border-none shadow-none w-full scroll-mt-28"
       aria-labelledby="about-heading"
     >
       <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -169,42 +169,49 @@ export const AboutSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right — IEYAL Journey Timeline (Light Theme) */}
+          {/* Right — Professional Executive Step-by-Step Layout */}
           <div
+            style={{ marginTop: '36px' }}
             className={`transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
-            aria-hidden="true"
           >
-            <div className="p-6 sm:p-8 md:p-10 lg:sticky lg:top-28 bg-slate-50 border border-slate-200 rounded-3xl shadow-sm">
-              <div className="mb-9 border-b border-slate-200 pb-6">
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#FF001E]">Company Timeline</span>
-                <h3 className="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
-                  IEYAL Journey
+            <div className="font-sans w-full">
+              <div style={{ marginBottom: '28px' }} className="border-b border-slate-200/80 pb-6">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF001E] block mb-2">How It Works</span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mb-2.5">
+                  The IEYAL Progression
                 </h3>
-                <p className="mt-3 text-sm md:text-base text-slate-600 leading-relaxed font-sans">
-                  A practical growth story shaped around useful products, stronger operations, and client outcomes.
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  A structured, step-by-step approach to solving business challenges, building custom software, and scaling operations reliably.
                 </p>
               </div>
-              <div className="space-y-0 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:ml-[2.25rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[#FF001E] before:via-[#E600E6] before:to-transparent font-sans">
+
+              {/* Clean Professional Vertical Progress List */}
+              <div className="space-y-0">
                 {[
-                  { year: '2023', title: 'Founded in Thiruvarur, Tamil Nadu', color: '#FF001E', delay: 0 },
-                  { year: '2023', title: 'Launched first client web projects',  color: '#FF001E', delay: 100 },
-                  { year: '2024', title: 'Developed OwnChat — WhatsApp CRM',    color: '#E600E6', delay: 200 },
-                  { year: '2024', title: 'Launched OwnTasks & OwnCart',         color: '#E600E6', delay: 300 },
-                  { year: '2025', title: 'Expanded to 15+ industry verticals',  color: '#FF001E', delay: 400 },
-                  { year: '2025+', title: 'AI automation & scale',              color: '#E600E6', delay: 500 },
-                ].map(({ year, title, color }, i) => (
-                  <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group py-6">
-                    {/* Icon marker */}
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white shadow-md bg-slate-100 z-10 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-transform duration-300 group-hover:scale-110" style={{ borderColor: color }}>
-                      <div className="w-4 h-4 rounded-full" style={{ backgroundColor: color }} />
+                  { step: '01', year: '2023', title: 'Founded with a Clear Purpose', desc: 'Started in Thiruvarur, Tamil Nadu with a mission to make enterprise-grade digital tools accessible to growing Indian businesses without bloat or high costs.' },
+                  { step: '02', year: '2023', title: 'Custom Engineering & Impact', desc: 'Delivered high-performance web applications, mobile tools, and automated workflows that immediately reduced manual effort for initial clients.' },
+                  { step: '03', year: '2024', title: 'Launching OwnChat SaaS Suite', desc: 'Built and released our flagship WhatsApp CRM and automation suite, empowering brands to manage customer conversations from a unified shared inbox.' },
+                  { step: '04', year: '2024', title: 'Expanding the SaaS Ecosystem', desc: 'Introduced OwnTasks for team productivity and OwnCart for instant e-commerce storefronts, forming a complete business growth toolkit.' },
+                  { step: '05', year: '2025+', title: 'AI Automation & National Scale', desc: 'Scaling across 15+ industry verticals with intelligent AI chatbots, predictive analytics, and enterprise cloud infrastructure built for the next decade.' },
+                ].map(({ step, year, title, desc }, i) => (
+                  <div
+                    key={i}
+                    style={{ marginBottom: '24px', padding: '16px' }}
+                    className="rounded-2xl bg-white border border-slate-200/80 border-l-4 border-l-slate-300 hover:border-l-[#FF001E] hover:shadow-md transition-all duration-300 group last:mb-0"
+                  >
+                    <div style={{ padding: '10px', marginBottom: '10px' }} className="flex items-center justify-between gap-3 border-b border-slate-100">
+                      <span className="text-xs font-mono font-bold tracking-widest text-[#FF001E]">STEP {step}</span>
+                      <span className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">{year}</span>
                     </div>
-                    {/* Content */}
-                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-[#FF001E] hover:shadow-md transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ backgroundColor: `${color}15`, color }}>{year}</span>
-                      </div>
-                      <p className="text-base md:text-lg font-bold text-slate-900 leading-snug">{title}</p>
-                    </div>
+                    <h4
+                      style={{ padding: '0 10px', marginBottom: '10px' }}
+                      className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#FF001E] transition-colors"
+                    >
+                      {title}
+                    </h4>
+                    <p style={{ padding: '0 10px', marginBottom: '10px' }} className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                      {desc}
+                    </p>
                   </div>
                 ))}
               </div>
