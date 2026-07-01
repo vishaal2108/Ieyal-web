@@ -3,6 +3,7 @@ import { PageWrapper } from '@/components/layout/PageWrapper';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { LeadershipSection } from '@/components/sections/LeadershipSection';
 import { CultureSection } from '@/components/sections/CultureSection';
+import { DemoCTASection } from '@/components/sections/DemoCTASection';
 import { COMPANY } from '@/data/company';
 
 export const AboutPage: React.FC = () => {
@@ -16,6 +17,7 @@ export const AboutPage: React.FC = () => {
         <AboutSection />
         <LeadershipSection />
         <CultureSection />
+        <DemoCTASection />
       </div>
     </PageWrapper>
   );

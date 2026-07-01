@@ -5,47 +5,48 @@ export default {
   theme: {
     extend: {
       colors: {
-        // IEYAL Brand Colors — Light theme inspired
+        // IEYAL Brand Colors — Dark Palette
         ieyal: {
-          primary:   '#d70029', // Brand Red
-          secondary: '#162f62', // Navy Blue
-          accent:    '#ce0037', // Button Red
-          dark:      '#212529', // Charcoal Black
-          darker:    '#162f62', // Navy Blue (Footer/Heading)
-          light:     '#f4f6fc', // Light BG
-          border:    '#E5E7EB', // Border Gray
+          primary:   '#FF001E', // Brand Red Accent
+          secondary: '#E600E6', // Magenta Accent
+          accent:    '#FF001E', // Button Red
+          dark:      '#1C2626', // Main Dark Background
+          darker:    '#111818', // Footer Background
+          light:     '#263333', // Card / Surface Background
+          border:    '#344646', // Border Gray
+          muted:     '#A0B2B2', // Desaturated slate-grey
         },
         // Design Token Aliases
         primary: {
-          50:  '#FDF2F8',
-          100: '#FCDAE8',
-          200: '#FAB5D0',
-          300: '#F591B8',
-          400: '#EE6CA4',
-          500: '#E6017F', // brand primary
-          600: '#D60070',
-          700: '#C6005F',
-          800: '#A00050',
-          900: '#7A003D',
-          950: '#5A002A',
+          50:  '#FFF0F2',
+          100: '#FFE0E5',
+          200: '#FFC2CB',
+          300: '#FFA3B0',
+          400: '#FF667D',
+          500: '#FF001E', // brand primary
+          600: '#D90019',
+          700: '#B30015',
+          800: '#8C0010',
+          900: '#66000C',
+          950: '#400007',
         },
         accent: {
-          50:  '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B', // brand accent
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+          50:  '#FDFAFE',
+          100: '#FBF3FC',
+          200: '#F6E0F9',
+          300: '#F0CBF5',
+          400: '#EBA3F0',
+          500: '#E600E6', // brand magenta
+          600: '#C200C2',
+          700: '#990099',
+          800: '#700070',
+          900: '#4D004D',
         },
         surface: {
-          DEFAULT: '#FFFFFF',
-          subtle:  '#F8FAFC',
-          muted:   '#F1F5F9',
-          border:  '#E2E8F0',
+          DEFAULT: '#263333',
+          subtle:  '#1C2626',
+          muted:   '#172020',
+          border:  '#344646',
         },
         neutral: {
           50:  '#F8FAFC',
@@ -66,8 +67,8 @@ export default {
         info:    '#3B82F6',
       },
       fontFamily: {
-        sans:    ['Poppins', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        sans:    ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono:    ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       fontSize: {
@@ -105,13 +106,13 @@ export default {
         'section-x': '40px',
       },
       backgroundImage: {
-        'hero-gradient':    'linear-gradient(135deg, #162f62 0%, #1a3a78 100%)',
-        'hero-radial':      'radial-gradient(ellipse at 70% 50%, rgba(215,0,41,0.08) 0%, transparent 70%)',
-        'section-gradient': 'linear-gradient(180deg, #f4f6fc 0%, #ffffff 100%)',
-        'card-gradient':    'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 100%)',
-        'primary-gradient': 'linear-gradient(to right, #de001d, #910094)',
-        'accent-gradient':  'linear-gradient(to right, #de001d, #ce0037)',
-        'glass-gradient':   'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+        'hero-gradient':    'linear-gradient(135deg, #1C2626 0%, #161e1e 100%)',
+        'hero-radial':      'radial-gradient(circle at 50% 50%, rgba(230, 0, 230, 0.05) 0%, transparent 70%)',
+        'section-gradient': 'linear-gradient(180deg, #1C2626 0%, #263333 100%)',
+        'card-gradient':    'linear-gradient(135deg, #1C2626 0%, #172020 100%)',
+        'primary-gradient': 'linear-gradient(to right, #FF001E, #E600E6)',
+        'accent-gradient':  'linear-gradient(to right, #FF001E, #E600E6)',
+        'glass-gradient':   'linear-gradient(135deg, rgba(38,51,51,0.90) 0%, rgba(28,38,38,0.90) 100%)',
         'grid-pattern':     'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%231A6FDB\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
       },
       animation: {

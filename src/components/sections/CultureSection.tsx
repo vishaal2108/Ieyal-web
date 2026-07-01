@@ -19,42 +19,42 @@ export const CultureSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="culture"
-      className="section-padding bg-dark-section relative overflow-hidden"
+      style={{ marginBottom: '60px' }}
+      className="py-24 bg-white relative overflow-hidden border-none shadow-none font-sans"
       aria-labelledby="culture-heading"
     >
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 20% 80%, rgba(26,111,219,0.2) 0%, transparent 60%)' }}
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{ background: 'radial-gradient(ellipse at 20% 80%, rgba(255,0,30,0.03) 0%, transparent 60%)' }}
         aria-hidden="true"
       />
 
-      <div className="container-xl relative z-10">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           eyebrow="Our Culture"
           title="How We Work, Every Day"
           titleHighlight="Every Day"
           subtitle="Culture is not a poster on the wall. It is the collection of small decisions we make every day about how we treat our team, our clients, and our work."
           centered
-          dark
           className="mb-14"
           id="culture-heading"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
           {CULTURE_VALUES.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className={`glass-dark p-7 rounded-2xl flex flex-col gap-4 transition-all duration-700 hover:bg-white/10 ${
+              className={`bg-slate-50 border border-slate-200/80 p-7 rounded-3xl flex flex-col gap-4 transition-all duration-500 hover:border-[#FF001E] hover:shadow-md hover:-translate-y-1 ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="w-11 h-11 rounded-xl bg-primary-700/50 border border-primary-600/30 flex items-center justify-center">
-                <Icon size={20} className="text-primary-300" aria-hidden="true" />
+              <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0">
+                <Icon size={22} className="text-[#FF001E]" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
-                <p className="text-sm text-blue-100/55 leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-normal">{desc}</p>
               </div>
             </div>
           ))}

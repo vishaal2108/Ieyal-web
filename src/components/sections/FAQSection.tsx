@@ -15,7 +15,7 @@ export const FAQSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="faq"
-      className="section-padding bg-gradient-section"
+      className="section-padding bg-[#1C2626] border-b border-[#344646]"
       aria-labelledby="faq-heading"
     >
       <div className="container-xl">
@@ -48,18 +48,18 @@ export const FAQSection: React.FC = () => {
                 aria-expanded={openId === id}
                 aria-controls={`faq-panel-${id}`}
                 onClick={() => toggle(id)}
-                className="w-full flex items-start justify-between gap-4 p-6 text-left hover:bg-surface-subtle transition-colors"
+                className="w-full flex items-start justify-between gap-4 p-6 text-left hover:bg-[#263333] transition-colors"
               >
-                <span className="font-semibold text-neutral-800 text-base leading-snug">{question}</span>
+                <span className="font-semibold text-[#FFFFFF] text-base leading-snug">{question}</span>
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-200"
-                  style={{ background: openId === id ? '#EEF4FF' : '#F1F5F9' }}
+                  style={{ background: openId === id ? 'rgba(255,0,30,0.15)' : 'rgba(230,0,230,0.15)' }}
                   aria-hidden="true"
                 >
                   {openId === id ? (
-                    <Minus size={16} className="text-ieyal-secondary" />
+                    <Minus size={16} className="text-[#FF001E]" />
                   ) : (
-                    <Plus size={16} className="text-neutral-500" />
+                    <Plus size={16} className="text-[#E600E6]" />
                   )}
                 </div>
               </button>
@@ -77,8 +77,8 @@ export const FAQSection: React.FC = () => {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-6 pt-1">
-                      <div className="h-px bg-neutral-100 mb-4" />
-                      <p className="text-neutral-600 text-sm leading-relaxed">{answer}</p>
+                      <div className="h-px bg-[#344646] mb-4" />
+                      <p className="text-[#A0B2B2] text-sm leading-relaxed">{answer}</p>
                     </div>
                   </motion.div>
                 )}

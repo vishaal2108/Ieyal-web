@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'outline-white' | 'accent' | 'ghost';
 type ButtonSize    = 'sm' | 'md' | 'lg' | 'xl';
@@ -84,10 +83,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </a>
         );
       }
+      const targetId = href.replace(/^\/|#/g, '');
+      const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const element = document.getElementById(targetId) || document.getElementById('contact');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      };
       return (
-        <Link to={href} className={classes}>
+        <a href={`#${targetId || 'home'}`} onClick={handleScroll} className={classes}>
           {content}
-        </Link>
+        </a>
       );
     }
 

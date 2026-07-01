@@ -19,7 +19,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   titleHighlight,
   subtitle,
   centered   = false,
-  dark       = false,
   className  = '',
   id,
   maxWidth   = 'max-w-2xl',
@@ -43,9 +42,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       )}
 
       <h2
-        className={`font-display font-bold leading-tight tracking-tight ${
-          dark ? 'text-white' : 'text-ieyal-primary'
-        }`}
+        className="font-display font-bold leading-tight tracking-tight text-[#FFFFFF]"
         style={{ fontSize: 'clamp(1.875rem, 4vw, 2.75rem)' }}
       >
         {titleHighlight ? (
@@ -61,9 +58,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {subtitle && (
         <p
-          className={`mt-4 text-lg leading-relaxed ${maxWidth} ${
-            dark ? 'text-blue-100 opacity-80' : 'text-neutral-500'
-          }`}
+          className={`mt-4 text-lg leading-relaxed ${maxWidth} text-[#A0B2B2]`}
         >
           {subtitle}
         </p>

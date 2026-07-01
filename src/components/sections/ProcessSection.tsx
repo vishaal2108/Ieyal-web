@@ -48,10 +48,11 @@ export const ProcessSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="process"
-      className="section-padding bg-white"
+      style={{ marginBottom: '60px' }}
+      className="py-24 bg-slate-50 border-none shadow-none font-sans"
       aria-labelledby="process-heading"
     >
-      <div className="container-xl">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="How We Work"
           title="A Clear Process for "
@@ -63,10 +64,10 @@ export const ProcessSection: React.FC = () => {
         />
 
         {/* Steps */}
-        <div className="relative">
+        <div className="relative font-sans">
           {/* Connector Line — Desktop */}
           <div
-            className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent"
+            className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"
             aria-hidden="true"
           />
 
@@ -74,24 +75,24 @@ export const ProcessSection: React.FC = () => {
             {STEPS.map(({ number, icon: Icon, title, desc, duration }, i) => (
               <div
                 key={number}
-                className={`flex flex-col items-center text-center gap-4 transition-all duration-700 ${
+                className={`flex flex-col items-center text-center gap-4 transition-all duration-500 ${
                   inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 {/* Step Bubble */}
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-2xl bg-primary-50 border-2 border-primary-100 flex flex-col items-center justify-center gap-1 transition-all duration-300 hover:bg-primary-100 hover:border-primary-300 hover:scale-105 group">
-                    <Icon size={22} className="text-ieyal-secondary" aria-hidden="true" />
-                    <span className="text-xs font-bold text-primary-400">{number}</span>
+                  <div className="w-24 h-24 rounded-3xl bg-white border-2 border-slate-200/80 shadow-sm flex flex-col items-center justify-center gap-1 transition-all duration-300 hover:border-[#FF001E] hover:shadow-md hover:scale-105 group">
+                    <Icon size={24} className="text-[#FF001E]" aria-hidden="true" />
+                    <span className="text-xs font-bold text-[#E600E6]">{number}</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold text-neutral-800 mb-2 leading-snug">{title}</h3>
-                  <p className="text-xs text-neutral-500 leading-relaxed">{desc}</p>
-                  <div className="inline-block mt-3 px-3 py-1 rounded-full bg-accent-50 border border-accent-200">
-                    <span className="text-xs font-semibold text-accent-700">{duration}</span>
+                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">{title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{desc}</p>
+                  <div className="inline-block mt-3 px-3.5 py-1 rounded-full bg-red-50 border border-red-100">
+                    <span className="text-xs font-bold text-[#FF001E]">{duration}</span>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Button } from '@/components/ui/Button';
 import { useInView } from '@/hooks/useInView';
 
 const WHY_FEATURES = [
@@ -46,7 +45,7 @@ export const WhyChooseSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="why-ieyal"
-      className="section-padding bg-white"
+      className="section-padding bg-[#1C2626] border-b border-[#344646]"
       aria-labelledby="why-heading"
     >
       <div className="container-xl">
@@ -58,37 +57,41 @@ export const WhyChooseSection: React.FC = () => {
             aria-hidden="true"
           >
             <div
-              className="rounded-3xl p-10 relative overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, #0F2B5B 0%, #1A3D7A 50%, #0D1F47 100%)' }}
+              className="rounded-3xl p-10 relative overflow-hidden border border-[#344646]"
+              style={{ background: 'linear-gradient(135deg, #1C2626 0%, #263333 100%)' }}
             >
               {/* Radial glow */}
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at 80% 20%, rgba(26,111,219,0.3) 0%, transparent 60%)' }}
+                style={{ background: 'radial-gradient(ellipse at 80% 20%, rgba(230,0,230,0.15) 0%, transparent 60%)' }}
               />
               <div className="relative z-10 space-y-6">
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary-300">Why businesses choose us</p>
-                <p className="text-3xl font-display font-bold text-white leading-tight">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#FF001E]">Why businesses choose us</p>
+                <p className="text-3xl font-display font-bold text-[#FFFFFF] leading-tight">
                   We treat your business like it is our own.
                 </p>
-                <p className="text-blue-100/60 leading-relaxed text-sm">
+                <p className="text-[#A0B2B2] leading-relaxed text-sm">
                   When you work with IEYAL, you are not just getting developers or consultants. You are getting a team that is genuinely invested in making your technology work — and keeping it working.
                 </p>
-                <Button variant="outline-white" href="/contact">
+                <a
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="btn btn-primary inline-flex items-center gap-2 cursor-pointer font-bold"
+                >
                   Start a Conversation
                   <ArrowRight size={16} aria-hidden="true" />
-                </Button>
+                </a>
 
                 {/* Mini stats */}
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#344646]">
                   {[
                     { v: '50+',  l: 'Clients' },
                     { v: '15+',  l: 'Industries' },
                     { v: '3+',   l: 'Years' },
                   ].map(({ v, l }) => (
                     <div key={l} className="text-center">
-                      <p className="text-2xl font-display font-bold text-white">{v}</p>
-                      <p className="text-xs text-white/40 mt-0.5">{l}</p>
+                      <p className="text-2xl font-display font-bold text-[#FFFFFF]">{v}</p>
+                      <p className="text-xs text-[#A0B2B2] mt-0.5">{l}</p>
                     </div>
                   ))}
                 </div>
@@ -112,7 +115,7 @@ export const WhyChooseSection: React.FC = () => {
               {WHY_FEATURES.map(({ title, desc }, i) => (
                 <div
                   key={title}
-                  className={`p-4 rounded-xl bg-surface-subtle border border-neutral-100 transition-all duration-500 hover:border-primary-200 hover:shadow-soft-sm ${
+                  className={`p-4 rounded-xl bg-[#263333] border border-[#344646] transition-all duration-500 hover:border-[#E600E6] hover:shadow-soft-sm ${
                     inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                   }`}
                   style={{ transitionDelay: `${i * 60}ms` }}
@@ -120,12 +123,12 @@ export const WhyChooseSection: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle2
                       size={18}
-                      className="text-ieyal-secondary flex-shrink-0 mt-0.5"
+                      className="text-[#FF001E] flex-shrink-0 mt-0.5"
                       aria-hidden="true"
                     />
                     <div>
-                      <p className="text-sm font-semibold text-neutral-800 mb-1">{title}</p>
-                      <p className="text-xs text-neutral-500 leading-relaxed">{desc}</p>
+                      <p className="text-sm font-semibold text-[#FFFFFF] mb-1">{title}</p>
+                      <p className="text-xs text-[#A0B2B2] leading-relaxed">{desc}</p>
                     </div>
                   </div>
                 </div>

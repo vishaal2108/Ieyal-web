@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { useInView } from '@/hooks/useInView';
-import { Quote, Star, User } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
@@ -33,18 +33,19 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>} 
-      className="section-padding bg-light-section relative overflow-hidden" 
+      style={{ marginBottom: '60px' }}
+      className="py-24 bg-white relative overflow-hidden border-none shadow-none font-sans" 
       id="testimonials"
       aria-labelledby="testimonials-heading"
     >
       {/* Decorative radial */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-50"
-        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(215,0,41,0.06) 0%, transparent 70%)' }}
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(230,0,230,0.03) 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
-      <div className="container-xl relative z-10">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           eyebrow="Testimonials"
           title="What Our Clients Say"
@@ -55,16 +56,16 @@ export const TestimonialsSection: React.FC = () => {
           id="testimonials-heading"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 font-sans">
           {TESTIMONIALS.map((testimonial, i) => (
              <div 
                key={i} 
-               className={`card-base p-10 md:p-12 lg:p-14 flex flex-col gap-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-soft-lg group relative overflow-hidden ${
+               className={`bg-slate-50 p-10 md:p-12 lg:p-14 rounded-3xl border border-slate-200/80 flex flex-col gap-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-md hover:border-[#FF001E] group relative overflow-hidden ${
                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                }`}
                style={{ transitionDelay: `${i * 150}ms` }}
              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Star Rating & Quote Icon */}
                 <div className="flex items-center justify-between relative z-10">
@@ -73,32 +74,32 @@ export const TestimonialsSection: React.FC = () => {
                       <Star key={j} size={20} className="text-yellow-400 fill-yellow-400" aria-hidden="true" />
                     ))}
                   </div>
-                  <Quote className="text-primary-500 opacity-20" size={36} aria-hidden="true" />
+                  <Quote className="text-[#FF001E] opacity-30" size={36} aria-hidden="true" />
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-lg md:text-xl text-ieyal-dark leading-relaxed italic flex-grow relative z-10 font-light">
+                <p className="text-lg md:text-xl text-slate-800 leading-relaxed italic flex-grow relative z-10 font-normal">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Divider */}
-                <div className="h-px bg-ieyal-border relative z-10 w-full my-2"></div>
+                <div className="h-px bg-slate-200 relative z-10 w-full my-2"></div>
 
                 {/* Author Info */}
                 <div className="flex items-center gap-5 relative z-10 mt-auto">
                   {/* Author Avatar Placeholder (Initials) */}
                   <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-soft-sm border border-white/20"
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-md border border-white/20"
                     style={{
-                      background: `linear-gradient(to right, #de001d, #ce0037)`
+                      background: 'linear-gradient(to right, #FF001E, #E600E6)'
                     }}
                     aria-label={`Photo placeholder for ${testimonial.author}`}
                   >
                     {testimonial.initials}
                   </div>
                   <div>
-                    <h4 className="text-ieyal-darker font-bold text-lg mb-1 tracking-wide">{testimonial.author}</h4>
-                    <p className="text-neutral-500 text-sm font-medium">{testimonial.role}</p>
+                    <h4 className="text-slate-900 font-bold text-lg mb-1 tracking-wide">{testimonial.author}</h4>
+                    <p className="text-slate-600 text-sm font-bold">{testimonial.role}</p>
                   </div>
                 </div>
              </div>

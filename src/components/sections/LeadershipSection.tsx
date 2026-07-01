@@ -39,10 +39,11 @@ export const LeadershipSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="leadership"
-      className="section-padding bg-gradient-section"
+      style={{ marginBottom: '60px' }}
+      className="py-24 bg-slate-50 border-none shadow-none font-sans overflow-hidden"
       aria-labelledby="leadership-heading"
     >
-      <div className="container-xl">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Founder & Leadership"
           title="The Team Behind IEYAL"
@@ -53,11 +54,11 @@ export const LeadershipSection: React.FC = () => {
           id="leadership-heading"
         />
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 font-sans">
           {FOUNDERS.map(({ name, designation, bio, quote, linkedin, initials, color }, i) => (
             <article
               key={name}
-              className={`card-base p-8 flex flex-col items-center text-center gap-5 transition-all duration-700 ${
+              className={`bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#FF001E] flex flex-col items-center text-center gap-5 transition-all duration-500 ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
@@ -65,7 +66,7 @@ export const LeadershipSection: React.FC = () => {
             >
               {/* Founder Image Placeholder — Replace with actual founder photo */}
               <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold font-display flex-shrink-0 shadow-soft-md"
+                className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0 shadow-md"
                 style={{ background: `linear-gradient(135deg, ${color} 0%, ${color}99 100%)` }}
                 aria-label={`Photo placeholder for ${name}`}
               >
@@ -73,13 +74,13 @@ export const LeadershipSection: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-display font-bold text-neutral-900 mb-1">{name}</h3>
-                <p className="text-sm font-semibold" style={{ color }}>{designation}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">{name}</h3>
+                <p className="text-sm font-bold text-[#E600E6]">{designation}</p>
               </div>
 
-              <p className="text-sm text-neutral-500 leading-relaxed">{bio}</p>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">{bio}</p>
 
-              <blockquote className="text-sm italic text-neutral-600 border-l-2 border-primary-200 pl-4 text-left">
+              <blockquote className="text-sm italic text-slate-700 border-l-2 border-[#FF001E] pl-4 text-left font-normal bg-red-50/40 py-2.5 px-3 rounded-r-xl w-full">
                 &ldquo;{quote}&rdquo;
               </blockquote>
 
@@ -87,7 +88,7 @@ export const LeadershipSection: React.FC = () => {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-medium text-ieyal-secondary hover:text-ieyal-primary transition-colors mt-auto"
+                className="flex items-center gap-2 text-xs font-bold text-[#FF001E] hover:text-[#E600E6] transition-colors mt-auto"
                 aria-label={`${name} on LinkedIn`}
               >
                 LinkedIn Profile

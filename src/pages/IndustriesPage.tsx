@@ -2,6 +2,7 @@ import React from 'react';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { IndustriesSection } from '@/components/sections/IndustriesSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+import { DemoCTASection } from '@/components/sections/DemoCTASection';
 import { COMPANY } from '@/data/company';
 
 export const IndustriesPage: React.FC = () => {
@@ -14,6 +15,7 @@ export const IndustriesPage: React.FC = () => {
       <div className="pt-10">
         <IndustriesSection />
         <TestimonialsSection />
+        <DemoCTASection />
       </div>
     </PageWrapper>
   );

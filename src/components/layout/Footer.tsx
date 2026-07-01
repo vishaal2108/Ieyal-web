@@ -1,150 +1,147 @@
 import React from 'react';
+import { Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from 'lucide-react';
 import { COMPANY } from '@/data/company';
+import logoImg from '@/assets/logo/logo.png';
 
-const FOOTER_LINKS = {
-  Products: [
-    { label: 'OwnChat', href: '/products/ownchat' },
-    { label: 'OwnTasks', href: '/products/owntasks' },
-    { label: 'OwnCart', href: '/products/owncart' },
-  ],
-  Services: [
-    { label: 'Web Development', href: '/services/web-development' },
-    { label: 'Mobile App Development', href: '/services/mobile-app-development' },
-    { label: 'WhatsApp Business API', href: '/services/whatsapp-business-api' },
-    { label: 'CRM Development', href: '/services/crm-development' },
-    { label: 'AI & Automation', href: '/services/ai-automation' },
-    { label: 'SEO', href: '/services/seo' },
-  ],
-  Company: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Industries', href: '/industries' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms of Service', href: '/terms' },
-  ],
-};
+const FOOTER_COLUMNS = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'OwnChat', href: '/products' },
+      { label: 'OwnTasks', href: '/products' },
+      { label: 'OwnCart', href: '/products' },
+      { label: 'All Products', href: '/products' },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'Web Development', href: '/services' },
+      { label: 'Mobile App Development', href: '/services' },
+      { label: 'WhatsApp Business API', href: '/services' },
+      { label: 'CRM Development', href: '/services' },
+      { label: 'AI & Automation', href: '/services' },
+      { label: 'SEO & Marketing', href: '/services' },
+    ],
+  },
+  {
+    title: 'Industries',
+    links: [
+      { label: 'Healthcare', href: '/industries' },
+      { label: 'Education', href: '/industries' },
+      { label: 'Real Estate', href: '/industries' },
+      { label: 'Retail & E-Commerce', href: '/industries' },
+      { label: 'Manufacturing', href: '/industries' },
+      { label: 'All Industries', href: '/industries' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Leadership Team', href: '/about' },
+      { label: 'Company Culture', href: '/about' },
+      { label: 'Contact Us', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Legal & Support',
+    links: [
+      { label: 'Privacy Policy', href: '/' },
+      { label: 'Terms & Conditions', href: '/' },
+      { label: 'Security', href: '/' },
+      { label: 'Help & FAQ', href: '/' },
+      { label: 'Chat on WhatsApp', href: COMPANY.contact.whatsappMsg, isExternal: true },
+    ],
+  },
+];
 
 export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ieyal-darker text-white border-t border-white/10" aria-label="Site footer">
-      <div className="container-xl py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 lg:gap-12">
-          <div className="flex flex-col">
-            <Link to="/" className="inline-flex items-center mb-6" aria-label="IEYAL Solutions Home">
-              <span className="rounded-2xl bg-white flex items-center justify-center px-4 py-3 shadow-glass" aria-hidden="true">
-                <img src="/logo.svg" alt="IEYAL Solutions" className="h-10 w-auto object-contain" />
-              </span>
-            </Link>
-
-            <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-md mb-8">
-              IT services and consulting company helping businesses grow through intelligent software,
-              automation, and digital transformation.
-            </p>
-
-            <div className="grid gap-4 mb-8">
-              <a
-                href={`tel:${COMPANY.contact.phone}`}
-                className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group"
-                aria-label={`Call us at ${COMPANY.contact.phone}`}
-              >
-                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-ieyal-primary transition-colors">
-                  <Phone size={14} className="text-ieyal-primary group-hover:text-white transition-colors" aria-hidden="true" />
-                </span>
-                <span>{COMPANY.contact.phone}</span>
-              </a>
-              <a
-                href={`mailto:${COMPANY.contact.email}`}
-                className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group"
-                aria-label={`Email us at ${COMPANY.contact.email}`}
-              >
-                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-ieyal-primary transition-colors">
-                  <Mail size={14} className="text-ieyal-primary group-hover:text-white transition-colors" aria-hidden="true" />
-                </span>
-                <span className="break-all">{COMPANY.contact.email}</span>
-              </a>
-              <div className="flex items-start gap-3 text-sm text-white/70">
-                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin size={14} className="text-ieyal-primary" aria-hidden="true" />
-                </span>
-                <span>{COMPANY.contact.address}</span>
-              </div>
+    <footer className="bg-white text-slate-700 border-t border-slate-200 font-sans shadow-sm" aria-label="Site footer">
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        {/* Main 5-Column Navigation Grid (iLovePDF style) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 font-sans">
+          {FOOTER_COLUMNS.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-base font-bold text-slate-900 mb-4 tracking-tight">
+                {col.title}
+              </h3>
+              <ul className="space-y-3 p-0 m-0 list-none">
+                {col.links.map((link) => (
+                  <li key={link.label} className="m-0">
+                    {link.isExternal ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
+        </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+        {/* Horizontal Separator Line */}
+        <div className="border-t border-slate-200 my-10"></div>
+
+        {/* Bottom Bar (Language, Brand, Social & Copyright) */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 font-sans">
+          {/* Left: Language & Logo / Location */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-slate-600">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2">
+              <img src={logoImg} alt="IEYAL Solutions" className="h-9 sm:h-10 w-auto object-contain block" />
+            </Link>
+            <span className="hidden sm:inline text-slate-300">|</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200/80 shadow-2xs">
+              <Globe size={14} className="text-[#FF001E]" aria-hidden="true" />
+              English
+            </span>
+            <span className="hidden md:inline text-slate-300">|</span>
+            <span className="text-xs text-slate-500 font-medium">{COMPANY.contact.address}</span>
+          </div>
+
+          {/* Right: Social icons & Copyright slogan */}
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-5">
+            <div className="flex flex-wrap items-center justify-center gap-2">
               {[
                 { label: 'LinkedIn', href: COMPANY.social.linkedin },
                 { label: 'Facebook', href: COMPANY.social.facebook },
                 { label: 'Instagram', href: COMPANY.social.instagram },
+                { label: 'WhatsApp', href: COMPANY.contact.whatsappMsg },
               ].map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white/70 hover:bg-ieyal-primary hover:border-ieyal-primary hover:text-white transition-all"
+                  className="px-3.5 py-1 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 hover:bg-[#FF001E] hover:border-[#FF001E] hover:text-white transition-all shadow-2xs"
+                  aria-label={`IEYAL Solutions on ${item.label}`}
                 >
                   {item.label}
                 </a>
               ))}
             </div>
-          </div>
-
-          {Object.entries(FOOTER_LINKS).map(([category, links]) => (
-            <nav key={category} aria-label={`${category} footer links`} className="lg:pl-4">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6 pb-2 border-b border-white/10 inline-block w-full">
-                {category}
-              </h3>
-              <ul className="space-y-4 p-0" role="list">
-                {links.map((link) => (
-                  <li key={link.href} className="m-0">
-                    <Link
-                      to={link.href}
-                      className="group flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-                    >
-                      <ArrowRight
-                        size={14}
-                        className="text-ieyal-primary opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"
-                        aria-hidden="true"
-                      />
-                      <span>{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-white/10 bg-white/[0.025]">
-        <div className="container-xl py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <p className="text-sm text-white/65">
-              Have a project in mind? Let us talk.
-            </p>
-            <a
-              href={COMPANY.contact.whatsappMsg}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#25D366]/12 border border-[#25D366]/25 text-[#25D366] text-sm font-semibold hover:bg-[#25D366]/20 transition-all"
-              aria-label="Start a WhatsApp conversation with IEYAL Solutions"
-            >
-              <MessageCircle size={16} aria-hidden="true" />
-              Start a WhatsApp Conversation
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="container-xl py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/45 text-center sm:text-left">
-            <p>&copy; {year} {COMPANY.name}. All rights reserved.</p>
-            <p>Headquartered in Thiruvarur, Tamil Nadu, India.</p>
+            <div className="text-xs font-bold text-slate-700 tracking-wide">
+              &copy; {year} {COMPANY.name} &reg; - Your Technology Partner
+            </div>
           </div>
         </div>
       </div>
