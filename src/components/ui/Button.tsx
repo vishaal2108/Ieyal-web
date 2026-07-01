@@ -60,7 +60,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const classes = `btn ${variantClass[variant]} ${sizeClass[size]} ${className}`;
+    const classes = `btn ${variantClass[variant]} ${sizeClass[size]} !px-[16px] !py-[10px] ${className}`;
     const content = (
       <>
         {loading ? <Spinner /> : leftIcon}

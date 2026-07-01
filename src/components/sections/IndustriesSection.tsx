@@ -78,7 +78,7 @@ export const IndustriesSection: React.FC = () => {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base shadow-md shadow-red-500/20 hover:scale-105 transition-all cursor-pointer inline-block"
+            className="inline-flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base shadow-md shadow-red-500/20 hover:scale-105 transition-all cursor-pointer inline-block"
             aria-label="Inquire about all industries IEYAL serves"
           >
             Explore All Industries

@@ -50,7 +50,7 @@ export const ServicesSection: React.FC = () => {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 font-bold text-sm hover:bg-[#FF001E] hover:border-[#FF001E] hover:text-white transition-all self-start md:self-end whitespace-nowrap shadow-sm"
+            className="inline-flex items-center gap-2 px-[16px] py-[10px] rounded-full bg-slate-100 border border-slate-200 text-slate-800 font-bold text-sm hover:bg-[#FF001E] hover:border-[#FF001E] hover:text-white transition-all self-start md:self-end whitespace-nowrap shadow-sm"
             aria-label="Get a consultation"
           >
             Get a Free Consultation <ArrowRight size={18} aria-hidden="true" />
@@ -110,7 +110,7 @@ export const ServicesSection: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base rounded-full shadow-lg shadow-red-500/25 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 px-[16px] py-[10px] bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base rounded-full shadow-lg shadow-red-500/25 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
               aria-label="Get a consultation for our services"
             >
               Inquire About All Services

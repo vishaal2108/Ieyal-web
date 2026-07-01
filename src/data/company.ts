@@ -9,16 +9,16 @@ export const COMPANY = {
   description:   'IEYAL Solutions is an IT services and consulting company helping businesses grow through intelligent software, automation, and digital transformation.',
   founded:       '2023',
   industry:      'IT Services & IT Consulting',
-  location:      'Thiruvarur, Tamil Nadu, India',
+  location:      'No. 2834/2, Nethaji Road, Opposite to Veterinary Hospital, Thiruvarur, Tamil Nadu - 610001',
+  logo:          'https://fir-host-test-a7200.web.app/assets/Logo/logo.png',
 
   contact: {
     phone:       '+91 97914 67587',
     phoneRaw:    '919791467587',
     whatsapp:    'https://wa.me/919791467587',
     whatsappMsg: 'https://wa.me/919791467587?text=Hello%20IEYAL%20Solutions%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services.',
-    // email and address to be provided by client
-    email:       'hello@ieyalsolutions.com',      // PLACEHOLDER
-    address:     'Thiruvarur, Tamil Nadu, India', // PLACEHOLDER
+    email:       'hello@ieyalsolutions.com',
+    address:     'No. 2834/2, Nethaji Road, Opposite to Veterinary Hospital, Thiruvarur, Tamil Nadu, 610001',
   },
 
   social: {

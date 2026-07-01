@@ -2,7 +2,7 @@ import React from 'react';
 import { Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { COMPANY } from '@/data/company';
-import logoImg from '@/assets/logo/logo.png';
+const logoImg = COMPANY.logo;
 
 const FOOTER_COLUMNS = [
   {
@@ -13,28 +13,27 @@ const FOOTER_COLUMNS = [
       { label: 'OwnTasks', href: '/products' },
       { label: 'OwnCart', href: '/products' },
       { label: 'All Products', href: '/products' },
+      { label: 'Pricing', href: '/products' },
     ],
   },
   {
     title: 'Solutions',
     links: [
-      { label: 'Web Development', href: '/services' },
-      { label: 'Mobile App Development', href: '/services' },
-      { label: 'WhatsApp Business API', href: '/services' },
-      { label: 'CRM Development', href: '/services' },
-      { label: 'AI & Automation', href: '/services' },
-      { label: 'SEO & Marketing', href: '/services' },
+      { label: 'WhatsApp Automation', href: '/services' },
+      { label: 'AI Chatbots', href: '/services' },
+      { label: 'Lead Management', href: '/services' },
+      { label: 'E-commerce Enablement', href: '/services' },
+      { label: 'Customer Support', href: '/services' },
     ],
   },
   {
     title: 'Industries',
     links: [
+      { label: 'Retail & E-commerce', href: '/industries' },
       { label: 'Healthcare', href: '/industries' },
       { label: 'Education', href: '/industries' },
       { label: 'Real Estate', href: '/industries' },
-      { label: 'Retail & E-Commerce', href: '/industries' },
-      { label: 'Manufacturing', href: '/industries' },
-      { label: 'All Industries', href: '/industries' },
+      { label: 'Financial Services', href: '/industries' },
     ],
   },
   {
@@ -62,41 +61,60 @@ export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-white text-slate-700 border-t border-slate-200 font-sans shadow-sm" aria-label="Site footer">
+    <footer className="bg-gradient-to-b from-slate-50 via-[#F8FAFC] to-[#F1F5F9] text-slate-700 border-t border-slate-200 font-sans shadow-sm" aria-label="Site footer">
       <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        {/* Main 5-Column Navigation Grid (iLovePDF style) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 font-sans">
-          {FOOTER_COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-base font-bold text-slate-900 mb-4 tracking-tight">
-                {col.title}
-              </h3>
-              <ul className="space-y-3 p-0 m-0 list-none">
-                {col.links.map((link) => (
-                  <li key={link.label} className="m-0">
-                    {link.isExternal ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
+        {/* Main Footer Layout: Navigation Grid + Office Map on One Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 font-sans items-start">
+          {/* Navigation Columns (8 cols on LG) */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+            {FOOTER_COLUMNS.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-base font-bold text-slate-900 mb-4 tracking-tight">
+                  {col.title}
+                </h3>
+                <ul className="space-y-3 p-0 m-0 list-none">
+                  {col.links.map((link) => (
+                    <li key={link.label} className="m-0">
+                      {link.isExternal ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                          className="text-sm text-slate-600 hover:text-[#FF001E] font-medium transition-colors block py-0.5"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Side: Office Map Iframe Only (No Text Content) */}
+          <div className="lg:col-span-4 bg-white rounded-3xl p-4 border border-slate-200/80 shadow-md flex flex-col justify-center">
+            <div className="w-full h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-200/80 shadow-inner bg-slate-100">
+              <iframe
+                title="IEYAL Solutions Footer Office Map"
+                src="https://maps.google.com/maps?q=No.+2834%2F2%2C+Nethaji+Road%2C+Opposite+to+Veterinary+Hospital%2C+Thiruvarur%2C+Tamil+Nadu%2C+610001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Horizontal Separator Line */}

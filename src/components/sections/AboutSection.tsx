@@ -93,7 +93,7 @@ export const AboutSection: React.FC = () => {
       ref={ref as React.RefObject<HTMLElement>}
       id="about"
       style={{ marginBottom: '60px' }}
-      className="py-24 bg-white border-none shadow-none overflow-hidden w-full"
+      className="py-24 bg-white border-none shadow-none w-full"
       aria-labelledby="about-heading"
     >
       <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,7 +162,7 @@ export const AboutSection: React.FC = () => {
             <div className="mt-8 flex justify-center w-full">
               <Link
                 to="/contact"
-                className="px-8 py-4 rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base shadow-lg shadow-red-500/25 hover:scale-105 hover:shadow-xl hover:shadow-red-500/35 transition-all duration-300 inline-flex items-center gap-3"
+                className="px-[16px] py-[10px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base shadow-lg shadow-red-500/25 hover:scale-105 hover:shadow-xl hover:shadow-red-500/35 transition-all duration-300 inline-flex items-center gap-3"
               >
                 Get in Touch <ArrowRight size={18} />
               </Link>

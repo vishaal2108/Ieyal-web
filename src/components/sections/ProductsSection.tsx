@@ -26,12 +26,12 @@ export const ProductsSection: React.FC = () => {
     >
       <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Our Products"
-          title="Software Built for Real Business Problems"
-          titleHighlight="Real Business Problems"
-          subtitle="Three SaaS products, built from the ground up based on conversations with business owners who needed better tools."
+          eyebrow="Our Growth Suite"
+          title="How Each Product Works for Your Business"
+          titleHighlight="Works for Your Business"
+          subtitle="One connected platform. Three powerful SaaS products built to grow your revenue, automate your customer service, and streamline your operations."
           centered
-          className="mb-16 md:mb-20"
+          className="mb-14 md:mb-16"
           id="products-heading"
         />
 
@@ -43,65 +43,57 @@ export const ProductsSection: React.FC = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md relative flex h-full flex-col overflow-hidden transition-all duration-300"
+              className="bg-white rounded-[2.5rem] border border-slate-200/80 shadow-md hover:shadow-xl relative flex h-full flex-col overflow-hidden transition-all duration-300"
               aria-label={`${product.name} - ${product.tagline}`}
             >
+              {/* Card Header (Centered) */}
               <div
-                className="px-6 sm:px-8 pt-8 pb-7 border-b border-slate-200"
+                className="px-6 sm:px-8 pt-10 pb-8 flex flex-col items-center text-center border-b border-slate-100"
                 style={{
-                  background: `linear-gradient(135deg, ${product.color}15 0%, #FFFFFF 100%)`,
+                  background: `linear-gradient(180deg, ${product.color}10 0%, #FFFFFF 100%)`,
                 }}
               >
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 shadow-sm transition-transform hover:scale-105"
                   style={{ backgroundColor: product.color }}
                 >
                   {productIcons[product.id]}
                 </div>
 
-                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-2 leading-tight">
+                <h3 className="font-display font-black text-2xl md:text-3xl text-slate-900 mb-1.5 leading-tight">
                   {product.name}
                 </h3>
-                <p className="text-base font-bold mb-4 text-[#E600E6]">
+                <p className="text-xs sm:text-sm font-bold mb-3 uppercase tracking-wider text-[#E600E6]">
                   {product.tagline}
                 </p>
-                <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-4 font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-sm mx-auto">
                   {product.description}
                 </p>
               </div>
 
-              <div className="px-6 sm:px-8 py-7 flex-grow flex flex-col">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#FF001E] mb-5">
+              {/* Clean Minimalist Typography Features (No Emojis or Dots) */}
+              <div className="px-6 sm:px-8 py-8 flex-grow flex flex-col justify-center bg-slate-50/50">
+                <p className="text-center text-xs font-bold uppercase tracking-widest text-[#FF001E] mb-4">
                   Key Capabilities
                 </p>
-                <ul className="grid gap-3 p-0 flex-grow" role="list">
-                  {product.features.slice(0, 5).map((feature, idx) => (
+                <ul className="divide-y divide-slate-200/60 max-w-xs mx-auto w-full p-0" role="list">
+                  {product.features.slice(0, 4).map((feature, idx) => (
                     <li
                       key={`${feature.title}-${idx}`}
-                      className="m-0 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-sm shadow-sm transition-colors hover:border-[#FF001E]"
+                      className="py-3 text-center text-sm sm:text-base font-semibold text-slate-700 m-0 first:pt-0 last:pb-0 transition-colors hover:text-[#FF001E]"
                     >
-                      <div className="flex items-start gap-3">
-                        <span
-                          className="mt-1.5 h-2.5 w-2.5 rounded-full flex-shrink-0 bg-[#FF001E]"
-                          aria-hidden="true"
-                        />
-                        <span className="leading-relaxed text-slate-600 font-normal">
-                          <strong className="font-bold text-slate-900 block mb-1">{feature.title}</strong>
-                          {feature.description}
-                        </span>
-                      </div>
+                      {feature.title}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div
-                className="px-6 sm:px-8 pb-8 pt-6 flex flex-col gap-3 mt-auto border-t border-slate-200"
-              >
+              {/* Card Footer with Standalone Pill Button (Not w-full) */}
+              <div className="px-6 sm:px-8 pb-9 pt-7 flex flex-col items-center justify-center gap-3.5 mt-auto border-t border-slate-100 bg-white">
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-base shadow-md shadow-red-500/20 hover:scale-105 transition-all w-full cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-sm sm:text-base shadow-md shadow-red-500/20 hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
                 >
                   {product.cta.primary}
                 </a>
@@ -109,10 +101,10 @@ export const ProductsSection: React.FC = () => {
                   href={product.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-sm font-bold text-slate-600 hover:text-[#FF001E] transition-colors py-2"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-bold text-slate-500 hover:text-[#FF001E] transition-colors py-1"
                   aria-label={`Visit ${product.name} website`}
                 >
-                  <ExternalLink size={14} aria-hidden="true" />
+                  <ExternalLink size={13} aria-hidden="true" />
                   Visit {product.name} Website
                 </a>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '@/hooks/useInView';
+import { Link } from 'react-router-dom';
 
 import cust1 from '@/assets/customers/imgi_42_Bigg Basz.png';
 import cust2 from '@/assets/customers/imgi_43_Building doctor.png';
@@ -59,30 +60,27 @@ export const MarqueeSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       style={{ marginTop: '40px', marginBottom: '60px' }}
-      className="py-24 bg-slate-50 overflow-hidden w-full mt-10 mb-12 border-none shadow-none"
+      className="py-24 bg-slate-50 w-full mt-10 mb-12 border-none shadow-none"
       aria-labelledby="trusted-heading"
     >
-      <div style={{ marginTop: '40px' }} className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 w-full flex flex-col items-center justify-center mt-10">
+      <div style={{ marginTop: '20px' }} className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 w-full flex flex-col items-center justify-center mt-6">
         <div
           className={`w-full flex flex-col items-center justify-center text-center font-sans transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
           <h2
             id="trusted-heading"
             style={{ fontSize: 'clamp(2rem, 4.1vw, 3.375rem)' }}
-            className="w-full text-center font-extrabold tracking-tight text-slate-900 mb-4"
+            className="w-full text-center font-extrabold tracking-tight text-slate-900"
           >
             Trusted by Growing Brands Across India
           </h2>
-          <p className="w-full text-center text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal px-4">
-            We are proud to partner with ambitious businesses and industry leaders who rely on IEYAL Solutions for their digital transformation.
-          </p>
         </div>
       </div>
 
       {/* Marquee Strip */}
       <div
         style={{ marginTop: '10px' }}
-        className="marquee-wrapper mt-2"
+        className="marquee-wrapper mt-2 overflow-hidden w-full"
         role="region"
         aria-label="Clients logo strip — client names scroll automatically"
       >
@@ -91,6 +89,20 @@ export const MarqueeSection: React.FC = () => {
             <LogoCard key={`${item.name}-${i}`} name={item.name} src={item.src} />
           ))}
         </div>
+      </div>
+
+      {/* Content & CTA Button after image strip like uengage.io */}
+      <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 w-full flex flex-col items-center justify-center text-center font-sans">
+        <p className="w-full text-center text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal px-4 mb-8">
+          We are proud to partner with ambitious businesses and industry leaders who rely on IEYAL Solutions for their digital transformation.
+        </p>
+        <Link
+          to="/contact"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="inline-flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold text-sm sm:text-base shadow-md shadow-red-500/20 hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
+        >
+          Join With Us
+        </Link>
       </div>
     </section>
   );

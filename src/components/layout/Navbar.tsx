@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, MessageCircle, CheckSquare, ShoppingCart, Globe, Smartphone, Code2, LayoutDashboard, Bot, Search, Palette, Cloud, Zap, Plug, Workflow, Cpu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY } from '@/data/company';
-import logoImg from '@/assets/logo/logo.png';
+const logoImg = COMPANY.logo;
 
 const iconMap: Record<string, React.FC<{ size?: number; className?: string; style?: React.CSSProperties }>> = {
   MessageCircle, CheckSquare, ShoppingCart, Globe, Smartphone, Code2,
@@ -41,6 +41,10 @@ export const Navbar: React.FC = () => {
   const [mobileOpen, setMobileOpen]           = useState(false);
   const [activeDropdown, setActiveDropdown]   = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded]   = useState<string | null>(null);
+  const [isHidden, setIsHidden]               = useState(false);
+  const [isScrolled, setIsScrolled]           = useState(false);
+  const hideTimerRef                          = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isHiddenRef                           = useRef(false);
   const location                              = useLocation();
 
   const closeAll = () => {
@@ -49,16 +53,70 @@ export const Navbar: React.FC = () => {
     setMobileExpanded(null);
   };
 
+  // 1. Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 100;
+      setIsScrolled(scrolled);
+      if (!scrolled) {
+        setIsHidden(false);
+        isHiddenRef.current = false;
+        if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // 2. Auto-hide after inactivity when scrolled down, reappear on any mouse/scroll/touch activity
+  useEffect(() => {
+    if (!isScrolled || mobileOpen || activeDropdown) {
+      setIsHidden(false);
+      isHiddenRef.current = false;
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      return;
+    }
+
+    const resetTimerAndShow = () => {
+      if (isHiddenRef.current) {
+        setIsHidden(false);
+        isHiddenRef.current = false;
+      }
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+
+      if (window.scrollY > 100) {
+        hideTimerRef.current = setTimeout(() => {
+          setIsHidden(true);
+          isHiddenRef.current = true;
+        }, 2500);
+      }
+    };
+
+    resetTimerAndShow();
+
+    const events = ['mousemove', 'scroll', 'keydown', 'click', 'touchstart', 'touchmove'];
+    events.forEach((event) => window.addEventListener(event, resetTimerAndShow, { passive: true }));
+
+    return () => {
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      events.forEach((event) => window.removeEventListener(event, resetTimerAndShow));
+    };
+  }, [isScrolled, mobileOpen, activeDropdown]);
+
   return (
     <>
-      {/* Navbar (Light Theme) */}
+      {/* Navbar (Centered Glassmorphism floating pill like uengage.io) */}
       <header
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300 shadow-sm"
+        className={`sticky top-4 z-50 px-3 sm:px-6 lg:px-8 transition-all duration-500 pointer-events-none mt-4 flex justify-center w-full ${
+          isHidden ? '-translate-y-[150%] opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+        }`}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container-xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 gap-6">
+        <div className="w-full max-w-7xl mx-auto pointer-events-auto bg-white/70 backdrop-blur-xl border border-white/80 rounded-full shadow-[0_8px_32px_0_rgba(31,38,135,0.12)] hover:shadow-[0_8px_36px_0_rgba(31,38,135,0.16)] transition-all duration-300 px-4 sm:px-6 lg:px-8 py-1.5 overflow-visible">
+          <div className="flex items-center justify-between h-14 sm:h-16 gap-3 lg:gap-4 xl:gap-6 w-full">
 
             {/* Logo */}
             <Link
@@ -70,12 +128,12 @@ export const Navbar: React.FC = () => {
               <img
                 src={logoImg}
                 alt="IEYAL Solutions"
-                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 flex-shrink-0"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-2 xl:gap-3" aria-label="Primary navigation">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-3 flex-shrink-0" aria-label="Primary navigation">
               {NAV_LINKS.map((link) => {
                 const isActive = location.pathname === link.href;
                 return (
@@ -205,12 +263,12 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-4 flex-shrink-0">
               <a
                 href={COMPANY.contact.whatsappMsg}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all !px-4 !py-2.5 !rounded-full shadow-sm whitespace-nowrap !h-[42px]"
+                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 text-xs xl:text-sm font-bold text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all !px-[14px] xl:!px-[16px] !py-[9px] xl:!py-[10px] !rounded-full shadow-sm whitespace-nowrap !h-[40px] xl:!h-[42px] flex-shrink-0"
                 aria-label="Contact us on WhatsApp"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -222,7 +280,7 @@ export const Navbar: React.FC = () => {
               <Link
                 to="/contact"
                 onClick={closeAll}
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-transparent border-2 border-[#FF001E] text-[#FF001E] hover:bg-[#FF001E] hover:text-white transition-all !px-5 !py-2.5 !rounded-full shadow-sm whitespace-nowrap !h-[42px] cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 xl:gap-2 text-xs xl:text-sm font-bold text-white bg-transparent border-2 border-[#FF001E] text-[#FF001E] hover:bg-[#FF001E] hover:text-white transition-all !px-[14px] xl:!px-[16px] !py-[9px] xl:!py-[10px] !rounded-full shadow-sm whitespace-nowrap !h-[40px] xl:!h-[42px] cursor-pointer flex-shrink-0"
               >
                 Get a Free Demo
               </Link>
@@ -245,7 +303,7 @@ export const Navbar: React.FC = () => {
         {mobileOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden border-t border-slate-200 bg-white shadow-xl"
+            className="lg:hidden pointer-events-auto max-w-7xl mx-auto mt-3 rounded-3xl border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-2xl overflow-hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
@@ -313,14 +371,14 @@ export const Navbar: React.FC = () => {
                   href={COMPANY.contact.whatsappMsg}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#25D366] text-white font-bold shadow-sm"
+                  className="w-full flex items-center justify-center gap-2 py-[10px] px-[16px] rounded-full bg-[#25D366] text-white font-bold shadow-sm"
                 >
                   WhatsApp Us
                 </a>
                 <Link
                   to="/contact"
                   onClick={closeAll}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold shadow-md"
+                  className="w-full flex items-center justify-center gap-2 py-[10px] px-[16px] rounded-full bg-[linear-gradient(to_right,#FF001E,#E600E6)] text-white font-bold shadow-md"
                 >
                   Get a Free Demo
                 </Link>

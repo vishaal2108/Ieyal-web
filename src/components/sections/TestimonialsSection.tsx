@@ -34,7 +34,7 @@ export const TestimonialsSection: React.FC = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>} 
       style={{ marginBottom: '60px' }}
-      className="py-24 bg-white relative overflow-hidden border-none shadow-none font-sans" 
+      className="py-24 bg-white relative border-none shadow-none font-sans" 
       id="testimonials"
       aria-labelledby="testimonials-heading"
     >

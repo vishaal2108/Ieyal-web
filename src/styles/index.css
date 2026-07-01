@@ -351,10 +351,21 @@ body {
   pointer-events: none;
 }
 
-.btn-sm  { padding: 0.625rem 1.25rem; font-size: 0.875rem; }
-.btn-md  { padding: 0.875rem 1.75rem; }
-.btn-lg  { padding: 1.0625rem 2.25rem; font-size: 1rem; }
-.btn-xl  { padding: 1.25rem 2.75rem; font-size: 1.0625rem; }
+/* UNIVERSAL BUTTON PADDING ENFORCEMENT: EXACTLY 10px 16px */
+button:not([class*="p-0"]):not([aria-label="Close"]):not([class*="w-8"]):not([class*="w-9"]):not([class*="w-10"]):not([class*="w-11"]):not([class*="w-12"]),
+a[class*="rounded-full"][class*="bg-"]:not([class*="p-0"]),
+a[class*="rounded-full"][class*="border-"]:not([class*="p-0"]),
+a[class*="rounded-xl"][class*="bg-"]:not([class*="p-0"]),
+a[class*="rounded-lg"][class*="bg-"]:not([class*="p-0"]),
+.btn, .btn-sm, .btn-md, .btn-lg, .btn-xl,
+[class*="btn-primary"], [class*="btn-secondary"], [class*="btn-outline"] {
+  padding: 10px 16px !important;
+}
+
+/* Card padding standardization */
+.card, [class*="rounded-3xl"][class*="border"]:not(button):not(a):not(input):not(textarea):not(select):not(iframe) {
+  padding: 24px;
+}
 
 .btn-primary {
   background: #FF001E !important;

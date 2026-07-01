@@ -76,7 +76,8 @@ export const WhyChooseSection: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="btn btn-primary inline-flex items-center gap-2 cursor-pointer font-bold"
+                  className="btn btn-primary !px-[16px] !py-[10px] inline-flex items-center gap-2 cursor-pointer font-bold"
+                  style={{ padding: '10px 16px' }}
                 >
                   Start a Conversation
                   <ArrowRight size={16} aria-hidden="true" />

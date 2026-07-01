@@ -72,13 +72,13 @@ export const ContactSection: React.FC = () => {
           className="mb-12"
         />
 
-        <div className="grid lg:grid-cols-3 gap-12 font-sans">
+        <div className="grid lg:grid-cols-3 gap-10 lg:gap-12 font-sans items-stretch">
 
           {/* Contact Info */}
           <div
-            className={`space-y-6 transition-all duration-700 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+            className={`flex flex-col justify-between space-y-6 h-full transition-all duration-700 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
           >
-            <div className="rounded-3xl border border-slate-200/80 bg-slate-50 p-6 space-y-5 shadow-sm">
+            <div className="rounded-3xl border border-slate-200/80 bg-slate-50 p-8 space-y-6 shadow-sm flex-1 flex flex-col justify-center">
               {[
                 { Icon: Phone,  label: 'Phone',   value: COMPANY.contact.phone,    href: `tel:${COMPANY.contact.phone}` },
                 { Icon: Mail,   label: 'Email',   value: COMPANY.contact.email,    href: `mailto:${COMPANY.contact.email}` },
@@ -105,7 +105,7 @@ export const ContactSection: React.FC = () => {
               href={COMPANY.contact.whatsappMsg}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-5 rounded-3xl border border-[#25D366]/30 bg-[#25D366]/05 hover:bg-[#25D366]/10 transition-colors group shadow-sm"
+              className="flex items-center gap-4 p-6 rounded-3xl border border-[#25D366]/30 bg-[#25D366]/05 hover:bg-[#25D366]/10 transition-colors group shadow-sm"
               aria-label="Chat with IEYAL Solutions on WhatsApp"
             >
               <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 flex items-center justify-center flex-shrink-0">
@@ -123,9 +123,9 @@ export const ContactSection: React.FC = () => {
             </a>
 
             {/* Social Links */}
-            <div>
+            <div className="p-6 rounded-3xl border border-slate-200/80 bg-slate-50 shadow-sm">
               <p className="text-xs font-bold text-[#FF001E] uppercase tracking-wider mb-3">Follow Us</p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {[
                   { href: COMPANY.social.linkedin,  label: 'LinkedIn' },
                   { href: COMPANY.social.facebook,  label: 'Facebook' },
@@ -136,7 +136,8 @@ export const ContactSection: React.FC = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-800 hover:border-[#FF001E] hover:text-[#FF001E] hover:bg-white transition-all shadow-sm"
+                    style={{ padding: '10px 16px' }}
+                    className="rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-800 hover:border-[#FF001E] hover:text-[#FF001E] hover:bg-red-50 transition-all shadow-sm"
                     aria-label={`IEYAL Solutions on ${label}`}
                   >
                     {label}
@@ -148,7 +149,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Contact Form */}
           <div
-            className={`lg:col-span-2 transition-all duration-700 delay-150 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+            className={`lg:col-span-2 h-full transition-all duration-700 delay-150 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
           >
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-12 rounded-3xl border border-slate-200/80 bg-slate-50 gap-5 shadow-sm">
@@ -161,7 +162,8 @@ export const ContactSection: React.FC = () => {
                 </p>
                 <button
                   onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', company: '', service: '', message: '' }); }}
-                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-slate-900 text-white font-bold text-sm hover:bg-[#FF001E] transition-all mt-2"
+                  style={{ padding: '10px 16px' }}
+                  className="inline-flex items-center justify-center rounded-full bg-slate-900 text-white font-bold text-sm hover:bg-[#FF001E] transition-all mt-2"
                 >
                   Send Another Message
                 </button>
@@ -170,7 +172,7 @@ export const ContactSection: React.FC = () => {
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="rounded-3xl border border-slate-200/80 bg-slate-50 p-8 space-y-5 shadow-sm"
+                className="rounded-3xl border border-slate-200/80 bg-slate-50 p-8 sm:p-10 space-y-6 shadow-sm h-full flex flex-col justify-between"
                 aria-label="Contact form"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -281,7 +283,8 @@ export const ContactSection: React.FC = () => {
                   size="lg"
                   loading={loading}
                   rightIcon={<Send size={16} aria-hidden="true" />}
-                  className="w-full justify-center"
+                  className="w-full justify-center !px-[16px] !py-[10px]"
+                  style={{ padding: '10px 16px' }}
                   aria-label="Submit contact form"
                 >
                   {loading ? 'Sending...' : 'Send Message'}

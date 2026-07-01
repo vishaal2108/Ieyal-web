@@ -18,7 +18,7 @@ export const StatisticsSection: React.FC = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       style={{ marginBottom: '60px' }}
-      className="py-24 bg-white relative overflow-hidden border-none shadow-none"
+      className="py-24 bg-white relative border-none shadow-none"
       aria-labelledby="stats-heading"
     >
       {/* Decorative radial */}
